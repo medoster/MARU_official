@@ -133,7 +133,7 @@ export default function SokuseiHoPage() {
                 <Card className="bg-zinc-700 border-zinc-600 shadow-sm">
                   <CardContent className="p-6 flex gap-4">
                     <div className="w-24 h-24 relative flex-shrink-0 overflow-hidden rounded-full bg-zinc-600 flex items-center justify-center">
-                      <span className="text-2xl">🎭</span>
+                      <Image src="/images/sokusei-ho-char6.png" alt="メ〇モン" fill className="object-cover" />
                     </div>
                     <div>
                       <h3 className="text-xl font-bold mb-1 text-white">メ〇モン</h3>
