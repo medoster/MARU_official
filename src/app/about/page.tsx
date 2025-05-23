@@ -99,7 +99,7 @@ export default function AboutPage() {
               <h3 className="text-xl font-semibold mb-4 text-white">UZU実装・移植実績</h3>
               <ul className="space-y-2">
                 <li className="flex items-center">
-                  <span className="w-32 text-gray-300">2024/05/20</span>
+                  <span className="w-32 text-gray-300">2024/12/13</span>
                   <Link
                     href="https://www.uzu-app.com/ja/scenario/7490"
                     target="_blank"
@@ -110,7 +110,7 @@ export default function AboutPage() {
                   <span className="text-gray-400 text-xs ml-2">（Boothからの移植）</span>
                 </li>
                 <li className="flex items-center">
-                  <span className="w-32 text-gray-300">2024/06/15</span>
+                  <span className="w-32 text-gray-300">2025/01/16</span>
                   <Link
                     href="https://www.uzu-app.com/ja/scenario/7135"
                     target="_blank"
@@ -121,7 +121,7 @@ export default function AboutPage() {
                   <span className="text-gray-400 text-xs ml-2">（Boothからの移植）</span>
                 </li>
                 <li className="flex items-center">
-                  <span className="w-32 text-gray-300">2024/07/10</span>
+                  <span className="w-32 text-gray-300">2025/02/20</span>
                   <Link
                     href="https://www.uzu-app.com/ja/scenario/8471"
                     target="_blank"
