@@ -10,38 +10,54 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 
+// 作品リスト
+const works = [
+  { id: "aonoshomei", title: "透きとおる青の証明" },
+  { id: "nuruga", title: "NURUGA" },
+  { id: "recall", title: "Re:CALL（リコール）" },
+  { id: "konkon", title: "魂吼-コンコン-" },
+]
+
 export default function ContactPage() {
   const [formState, setFormState] = useState({
     name: "",
     email: "",
     subject: "",
     category: "",
+    selectedWork: "",
     message: "",
   })
 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [error, setError] = useState("")
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormState((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSelectChange = (value: string) => {
-    setFormState((prev) => ({ ...prev, category: value }))
+  const handleSelectChange = (value: string, field: "category" | "selectedWork") => {
+    setFormState((prev) => ({ ...prev, [field]: value }))
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setError("")
 
     try {
-      // In a real implementation, this would send the form data to your server
-      // which would then forward it to your email address
-      await new Promise((resolve) => setTimeout(resolve, 1500))
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formState),
+      })
 
-      // This would be handled server-side in a real implementation
-      console.log("Form submitted:", formState)
+      if (!response.ok) {
+        throw new Error("送信に失敗しました")
+      }
 
       setIsSubmitted(true)
       setFormState({
@@ -49,10 +65,12 @@ export default function ContactPage() {
         email: "",
         subject: "",
         category: "",
+        selectedWork: "",
         message: "",
       })
     } catch (error) {
       console.error("Error submitting form:", error)
+      setError("送信に失敗しました。しばらく時間をおいて再度お試しください。")
     } finally {
       setIsSubmitting(false)
     }
@@ -129,19 +147,39 @@ export default function ContactPage() {
                       <Label htmlFor="category" className="text-white">
                         お問い合わせ種別
                       </Label>
-                      <Select value={formState.category} onValueChange={handleSelectChange} required>
+                      <Select value={formState.category} onValueChange={(value) => handleSelectChange(value, "category")} required>
                         <SelectTrigger className="bg-zinc-700 border-zinc-600 text-white">
                           <SelectValue placeholder="種別を選択してください" />
                         </SelectTrigger>
                         <SelectContent className="bg-zinc-700 border-zinc-600">
-                          <SelectItem value="general">一般的なお問い合わせ</SelectItem>
-                          <SelectItem value="gm">GM依頼</SelectItem>
-                          <SelectItem value="collaboration">コラボレーション</SelectItem>
-                          <SelectItem value="feedback">作品へのフィードバック</SelectItem>
-                          <SelectItem value="other">その他</SelectItem>
+                          <SelectItem value="general" className="text-white">一般的なお問い合わせ</SelectItem>
+                          <SelectItem value="gm" className="text-white">GM依頼</SelectItem>
+                          <SelectItem value="collaboration" className="text-white">コラボレーション</SelectItem>
+                          <SelectItem value="feedback" className="text-white">作品へのフィードバック</SelectItem>
+                          <SelectItem value="other" className="text-white">その他</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
+
+                    {formState.category === "feedback" && (
+                      <div className="grid gap-2">
+                        <Label htmlFor="selectedWork" className="text-white">
+                          対象作品
+                        </Label>
+                        <Select value={formState.selectedWork} onValueChange={(value) => handleSelectChange(value, "selectedWork")} required>
+                          <SelectTrigger className="bg-zinc-700 border-zinc-600 text-white">
+                            <SelectValue placeholder="作品を選択してください" />
+                          </SelectTrigger>
+                          <SelectContent className="bg-zinc-700 border-zinc-600">
+                            {works.map((work) => (
+                              <SelectItem key={work.id} value={work.id} className="text-white">
+                                {work.title}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </div>
+                    )}
 
                     <div className="grid gap-2">
                       <Label htmlFor="subject" className="text-white">
@@ -171,6 +209,10 @@ export default function ContactPage() {
                         className="bg-zinc-700 border-zinc-600 text-white"
                       />
                     </div>
+
+                    {error && (
+                      <div className="text-red-500 text-sm">{error}</div>
+                    )}
 
                     <Button
                       type="submit"

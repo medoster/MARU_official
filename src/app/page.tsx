@@ -3,6 +3,11 @@ import Image from "next/image"
 import { ChevronRight, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "MARU",
+}
 
 export default function Home() {
   return (
