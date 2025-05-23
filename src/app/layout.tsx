@@ -14,6 +14,9 @@ export const metadata: Metadata = {
     default: "MARU",
     template: "MARU",
   },
+  icons: {
+    icon: "/images/maru-icon.png", // または .png でも可
+  },
   description: null,
 };
 
