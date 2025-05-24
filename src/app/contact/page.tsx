@@ -12,21 +12,27 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 
 // 作品リスト
 const works = [
+  { id: "shadowcode", title: "SHADOW CODE" },
+  { id: "sokusekiho", title: "即席HO" },
   { id: "aonoshomei", title: "透きとおる青の証明" },
-  { id: "nuruga", title: "NURUGA" },
+  { id: "nuruga", title: "NURUGA-2周目の蛇足-" },
+  { id: "inbou", title: "陰謀論者じゃないもん！" },
+  { id: "jilvain", title: "JILVAIN" },
   { id: "recall", title: "Re:CALL（リコール）" },
   { id: "konkon", title: "魂吼-コンコン-" },
 ]
 
 export default function ContactPage() {
-  const [formState, setFormState] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    category: "",
-    selectedWork: "",
-    message: "",
-  })
+  const initialState: Record<string, string> = {
+    "entry.1473372340": "",
+    "entry.330209799": "",
+    "entry.1337542843": "",
+    "entry.695875724": "",
+    "entry.643649289": "",
+    "entry.530101119": "",
+  };
+
+  const [formState, setFormState] = useState<Record<string, string>>(initialState)
 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
@@ -37,42 +43,31 @@ export default function ContactPage() {
     setFormState((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSelectChange = (value: string, field: "category" | "selectedWork") => {
-    setFormState((prev) => ({ ...prev, [field]: value }))
+  const handleSelectChange = (value: string, fieldName: string) => {
+    setFormState((prev) => ({ ...prev, [fieldName]: value }))
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    setError("")
-
+    e.preventDefault();
+    setIsSubmitting(true);
+    setError("");
     try {
+      const formData = new URLSearchParams(formState);
       const response = await fetch("/api/contact", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formState),
-      })
-
-      if (!response.ok) {
-        throw new Error("送信に失敗しました")
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: formData.toString(),
+      });
+      if (response.status < 200 || response.status > 302) {
+        throw new Error("送信に失敗しました");
       }
-
-      setIsSubmitted(true)
-      setFormState({
-        name: "",
-        email: "",
-        subject: "",
-        category: "",
-        selectedWork: "",
-        message: "",
-      })
+      setIsSubmitted(true);
+      setFormState(initialState);
     } catch (error) {
-      console.error("Error submitting form:", error)
-      setError("送信に失敗しました。しばらく時間をおいて再度お試しください。")
+      console.error("Error submitting form:", error);
+      setError("送信に失敗しました。しばらく時間をおいて再度お試しください。");
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
   }
 
@@ -115,105 +110,93 @@ export default function ContactPage() {
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="grid gap-2">
-                      <Label htmlFor="name" className="text-white">
-                        お名前
-                      </Label>
+                      <Label htmlFor="name" className="text-white">お名前</Label>
                       <Input
                         id="name"
-                        name="name"
-                        value={formState.name}
+                        name="entry.1473372340"
+                        value={formState["entry.1473372340"]}
                         onChange={handleChange}
                         required
                         className="bg-zinc-700 border-zinc-600 text-white"
                       />
                     </div>
-
                     <div className="grid gap-2">
-                      <Label htmlFor="email" className="text-white">
-                        メールアドレス
-                      </Label>
+                      <Label htmlFor="email" className="text-white">メールアドレス</Label>
                       <Input
                         id="email"
-                        name="email"
+                        name="entry.330209799"
                         type="email"
-                        value={formState.email}
+                        value={formState["entry.330209799"]}
                         onChange={handleChange}
                         required
                         className="bg-zinc-700 border-zinc-600 text-white"
                       />
                     </div>
-
                     <div className="grid gap-2">
-                      <Label htmlFor="category" className="text-white">
-                        お問い合わせ種別
-                      </Label>
-                      <Select value={formState.category} onValueChange={(value) => handleSelectChange(value, "category")} required>
+                      <Label htmlFor="category" className="text-white">お問い合わせ種別</Label>
+                      <Select
+                        value={formState["entry.1337542843"]}
+                        onValueChange={(value) => handleSelectChange(value, "entry.1337542843")}
+                        required
+                      >
                         <SelectTrigger className="bg-zinc-700 border-zinc-600 text-white">
                           <SelectValue placeholder="種別を選択してください" />
                         </SelectTrigger>
                         <SelectContent className="bg-zinc-700 border-zinc-600">
-                          <SelectItem value="general" className="text-white">一般的なお問い合わせ</SelectItem>
+                          <SelectItem value="general" className="text-white">移植依頼</SelectItem>
                           <SelectItem value="gm" className="text-white">GM依頼</SelectItem>
-                          <SelectItem value="collaboration" className="text-white">コラボレーション</SelectItem>
-                          <SelectItem value="feedback" className="text-white">作品へのフィードバック</SelectItem>
+                          <SelectItem value="collaboration" className="text-white">コラボ希望</SelectItem>
+                          <SelectItem value="feedback" className="text-white">作品の感想</SelectItem>
+                          <SelectItem value="bugreport" className="text-white">誤字脱字やバグ報告</SelectItem>
                           <SelectItem value="other" className="text-white">その他</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
-
-                    {formState.category === "feedback" && (
+                    {(formState["entry.1337542843"] == "feedback" || formState["entry.1337542843"] =="bugreport") && (
                       <div className="grid gap-2">
-                        <Label htmlFor="selectedWork" className="text-white">
-                          対象作品
-                        </Label>
-                        <Select value={formState.selectedWork} onValueChange={(value) => handleSelectChange(value, "selectedWork")} required>
+                        <Label htmlFor="selectedWork" className="text-white">対象作品</Label>
+                        <Select
+                          value={formState["entry.695875724"]}
+                          onValueChange={(value) => handleSelectChange(value, "entry.695875724")}
+                          required
+                        >
                           <SelectTrigger className="bg-zinc-700 border-zinc-600 text-white">
                             <SelectValue placeholder="作品を選択してください" />
                           </SelectTrigger>
                           <SelectContent className="bg-zinc-700 border-zinc-600">
-                            {works.map((work) => (
-                              <SelectItem key={work.id} value={work.id} className="text-white">
-                                {work.title}
+                            {works.map((w) => (
+                              <SelectItem key={w.id} value={w.id} className="text-white">
+                                {w.title}
                               </SelectItem>
                             ))}
                           </SelectContent>
                         </Select>
                       </div>
                     )}
-
                     <div className="grid gap-2">
-                      <Label htmlFor="subject" className="text-white">
-                        件名
-                      </Label>
+                      <Label htmlFor="subject" className="text-white">件名</Label>
                       <Input
                         id="subject"
-                        name="subject"
-                        value={formState.subject}
+                        name="entry.643649289"
+                        value={formState["entry.643649289"]}
                         onChange={handleChange}
                         required
                         className="bg-zinc-700 border-zinc-600 text-white"
                       />
                     </div>
-
                     <div className="grid gap-2">
-                      <Label htmlFor="message" className="text-white">
-                        メッセージ
-                      </Label>
+                      <Label htmlFor="message" className="text-white">メッセージ</Label>
                       <Textarea
                         id="message"
-                        name="message"
+                        name="entry.530101119"
                         rows={5}
-                        value={formState.message}
+                        value={formState["entry.530101119"]}
                         onChange={handleChange}
                         required
                         className="bg-zinc-700 border-zinc-600 text-white"
                       />
                     </div>
-
-                    {error && (
-                      <div className="text-red-500 text-sm">{error}</div>
-                    )}
-
+                    {error && <div className="text-red-500 text-sm">{error}</div>}
                     <Button
                       type="submit"
                       className="w-full bg-cyan-700 hover:bg-cyan-800 text-white"

@@ -64,7 +64,7 @@ export default function AboutPage() {
               </p>
               <p className="text-zinc-300">
                 「SHADOW CODE」「JILVAIN」などの作品を手がけています。
-                UZUならではの機能を活かした、独自のギミックや演出を取り入れたシナリオ作りを心がけています。
+                UZUならではの機能を活かした、独自のギミックを取り入れたシナリオ作りを心がけています。
                 また、他作品のUZUへの移植作業や実装も行なっています。
               </p>
             </div>

@@ -1,12 +1,18 @@
 import { NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
 
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
-    const { name, email, subject, category, message, selectedWork } = body;
+    const formText = await request.text();
+    const params = new URLSearchParams(formText);
+    const name = params.get("entry.1473372340") || "";
+    const email = params.get("entry.330209799") || "";
+    const category = params.get("entry.1337542843") || "";
+    const selectedWork = params.get("entry.695875724") || "";
+    const subject = params.get("entry.643649289") || "";
+    const message = params.get("entry.530101119") || "";
 
     // メール送信用のトランスポーターを作成
+    const nodemailer = require('nodemailer');
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
@@ -42,4 +48,4 @@ ${message}
       { status: 500 }
     );
   }
-} 
+}
