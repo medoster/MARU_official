@@ -20,6 +20,7 @@ const works = [
   { id: "jilvain", title: "JILVAIN" },
   { id: "recall", title: "Re:CALL（リコール）" },
   { id: "konkon", title: "魂吼-コンコン-" },
+  { id: "hanagara", title: "花枯らの檻" },
 ]
 
 export default function ContactPage() {
