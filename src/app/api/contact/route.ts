@@ -42,9 +42,12 @@ ${message}
 
     return NextResponse.json({ message: 'メールを送信しました' }, { status: 200 });
   } catch (error) {
-    console.error('メール送信エラー:', error);
+    console.error('メール送信エラー:', error, error.stack);
     return NextResponse.json(
-      { error: 'メールの送信に失敗しました' },
+      {
+        error: error instanceof Error ? error.message : String(error),
+        stack: error instanceof Error ? error.stack : undefined
+      },
       { status: 500 }
     );
   }
