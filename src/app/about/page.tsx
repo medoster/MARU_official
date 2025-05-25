@@ -80,11 +80,15 @@ export default function AboutPage() {
                 </li>
                 <li className="flex items-center">
                   <span className="w-32 text-gray-300">2024/09/14</span>
-                  <span className="text-gray-300">即席HO</span>
+                  <Link href="/works/sokusei-ho" className="text-gray-300 hover:text-white">
+                    即席HO
+                  </Link>
                 </li>
                 <li className="flex items-center">
                   <span className="w-32 text-gray-300">2025/02/14</span>
-                  <span className="text-gray-300">陰謀論者じゃないもん！</span>
+                  <Link href="/works/inbou" className="text-gray-300 hover:text-white">
+                    陰謀論者じゃないもん！
+                  </Link>
                 </li>
                 <li className="flex items-center">
                   <span className="w-32 text-gray-300">2025/02/18</span>

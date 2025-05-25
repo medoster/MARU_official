@@ -42,7 +42,7 @@ ${message}
 
     return NextResponse.json({ message: 'メールを送信しました' }, { status: 200 });
   } catch (error) {
-    console.error('メール送信エラー:', error, error.stack);
+    console.error('メール送信エラー:', error);
     return NextResponse.json(
       {
         error: error instanceof Error ? error.message : String(error),
