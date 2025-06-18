@@ -24,11 +24,17 @@ export default function Header() {
             <Link href="/works" className="text-white hover:text-cyan-400 transition-colors">
               作品
             </Link>
+            <Link href="/news" className="text-white hover:text-cyan-400 transition-colors">
+              ニュース
+            </Link>
             <Link href="/about" className="text-white hover:text-cyan-400 transition-colors">
               プロフィール
             </Link>
             <Link href="/contact" className="text-white hover:text-cyan-400 transition-colors">
               お問い合わせ
+            </Link>
+            <Link href="/en" className="text-white hover:text-cyan-400 transition-colors">
+              EN
             </Link>
           </nav>
 
@@ -63,6 +69,13 @@ export default function Header() {
               作品
             </Link>
             <Link
+              href="/news"
+              className="py-3 text-white hover:text-cyan-400 transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              ニュース
+            </Link>
+            <Link
               href="/about"
               className="py-3 text-white hover:text-cyan-400 transition-colors"
               onClick={() => setIsMenuOpen(false)}
@@ -75,6 +88,13 @@ export default function Header() {
               onClick={() => setIsMenuOpen(false)}
             >
               お問い合わせ
+            </Link>
+            <Link
+              href="/en"
+              className="py-3 text-white hover:text-cyan-400 transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              EN
             </Link>
           </nav>
         </div>

@@ -99,6 +99,7 @@ export default function AboutPage() {
               </ul>
             </div>
 
+
             <div className="mb-8">
               <h3 className="text-xl font-semibold mb-4 text-white">UZU実装・移植実績</h3>
               <ul className="space-y-2">
