@@ -22,7 +22,7 @@ export default function EnglishHome() {
             The latest work, <strong>Hanagara no Ori</strong>, will be released soon.
           </p>
           <p>
-            For inquiries in English, please email <span className="underline">maruoka@sally-inc.jp</span>.
+            For inquiries in English, please use the contact form.
           </p>
         </div>
       </section>
