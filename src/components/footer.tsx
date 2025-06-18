@@ -22,6 +22,11 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link href={`${base}/about`} className="text-gray-300 hover:text-white transition-colors">
+                  {isEnglish ? 'Profile' : 'プロフィール'}
+                </Link>
+              </li>
+              <li>
                 <Link href={`${base}/works`} className="text-gray-300 hover:text-white transition-colors">
                   {isEnglish ? 'Works' : '作品'}
                 </Link>
@@ -29,11 +34,6 @@ const Footer = () => {
               <li>
                 <Link href={`${base}/news`} className="text-gray-300 hover:text-white transition-colors">
                   {isEnglish ? 'News' : 'ニュース'}
-                </Link>
-              </li>
-              <li>
-                <Link href={`${base}/about`} className="text-gray-300 hover:text-white transition-colors">
-                  {isEnglish ? 'Profile' : 'プロフィール'}
                 </Link>
               </li>
               <li>
