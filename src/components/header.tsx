@@ -4,7 +4,6 @@ import { useState } from "react"
 import { usePathname } from "next/navigation"
 import Link from "next/link"
 import { Menu, X } from "lucide-react"
-import ThemeToggle from "./theme-toggle"
 import { Button } from "@/components/ui/button"
 
 export default function Header() {
@@ -41,7 +40,6 @@ export default function Header() {
             <Link href={isEnglish ? "/" : "/en"} className="text-white hover:text-cyan-400 transition-colors">
               {isEnglish ? "JP" : "EN"}
             </Link>
-            <ThemeToggle />
           </nav>
 
           {/* Mobile Menu Button */}
@@ -102,7 +100,6 @@ export default function Header() {
             >
               {isEnglish ? "JP" : "EN"}
             </Link>
-            <ThemeToggle />
           </nav>
         </div>
       )}
