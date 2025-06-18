@@ -9,9 +9,64 @@ interface NewsItem {
 const newsItems: NewsItem[] = [
   {
     title: 'Hanagara no Ori coming this summer',
-    description: 'The newest scenario will be released soon.',
-    date: 'Summer 2025'
-  }
+    description: 'The newest murder mystery "Hanagara no Ori" will be released this summer.',
+    date: 'Summer 2025',
+  },
+  {
+    title: 'Nazoneko Boot Camp lecturer',
+    description: 'Served as an instructor at the boot camp hosted by Nazoneko.',
+    date: '2025/05/16',
+  },
+  {
+    title: 'Soul Roar -Konkon- implemented on UZU',
+    description: 'Handled implementation for the UZU app.',
+    date: '2025/04/01',
+  },
+  {
+    title: 'Hosted the UZU AWARD ceremony',
+    description: 'Served as host at the UZU AWARD.',
+    date: '2025/03/02',
+  },
+  {
+    title: 'SHADOW CODE wins UZU AWARD 2024 mid-year',
+    description: '"SHADOW CODE" received the UZU AWARD for the first half of 2024.',
+    date: '2025/03/02',
+  },
+  {
+    title: 'Re:CALL implemented on UZU',
+    description: 'Handled implementation for the UZU app.',
+    date: '2025/02/20',
+  },
+  {
+    title: 'JILVAIN released',
+    description: 'Released the fantasy scenario "JILVAIN".',
+    date: '2025/02/18',
+  },
+  {
+    title: 'Not a Conspiracy! released',
+    description: 'Released the new scenario "Not a Conspiracy!".',
+    date: '2025/02/14',
+  },
+  {
+    title: 'NURUGA -Second Week Excess- ported to UZU',
+    description: 'Ported from Booth to UZU.',
+    date: '2025/01/16',
+  },
+  {
+    title: 'Proof of Translucent Blue ported to UZU',
+    description: 'Ported from Booth to UZU.',
+    date: '2024/12/13',
+  },
+  {
+    title: 'Instant HO released',
+    description: 'Released the short scenario "Instant HO".',
+    date: '2024/09/14',
+  },
+  {
+    title: 'SHADOW CODE released',
+    description: 'Released the first original scenario "SHADOW CODE".',
+    date: '2024/08/17',
+  },
 ]
 
 export default function EnglishNews() {
