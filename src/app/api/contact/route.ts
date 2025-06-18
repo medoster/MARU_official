@@ -1,15 +1,26 @@
-import { NextResponse } from 'next/server';
+import { NextResponse } from 'next/server'
+import type { NextRequest } from 'next/server'
 
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
   try {
-    const formText = await request.text();
-    const params = new URLSearchParams(formText);
-    const name = params.get("entry.1473372340") || "";
-    const email = params.get("entry.330209799") || "";
-    const category = params.get("entry.1337542843") || "";
-    const selectedWork = params.get("entry.695875724") || "";
-    const subject = params.get("entry.643649289") || "";
-    const message = params.get("entry.530101119") || "";
+    const formText = await request.text()
+    const params = new URLSearchParams(formText)
+    const name = params.get('entry.1473372340') || ''
+    const email = params.get('entry.330209799') || ''
+    const category = params.get('entry.1337542843') || ''
+    const selectedWork = params.get('entry.695875724') || ''
+    const subject = params.get('entry.643649289') || ''
+    const message = params.get('entry.530101119') || ''
+
+    // Google Form への送信
+    const formEndpoint = process.env.GOOGLE_FORM_ACTION_URL
+    if (formEndpoint) {
+      await fetch(formEndpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: params.toString(),
+      })
+    }
 
     // メール送信用のトランスポーターを作成
     const nodemailer = require('nodemailer');
