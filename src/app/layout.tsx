@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
-import Navigation from "../components/Navigation";
+import Header from "../components/header";
 import Footer from "../components/footer";
 import React from "react";
 
@@ -18,6 +18,10 @@ export const metadata: Metadata = {
     icon: "/images/maru-icon.png", // または .png でも可
   },
   description: null,
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+  },
 };
 
 export default function RootLayout({
@@ -35,7 +39,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="flex flex-col min-h-screen">
-            <Navigation />
+            <Header />
             <main className="pt-16 flex-grow">
               {children}
             </main>
