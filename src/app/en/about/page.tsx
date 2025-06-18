@@ -53,9 +53,9 @@ export default function EnglishAbout() {
               <p>
                 MARU publishes works on the UZU app, focusing on immersive worlds and unique gameplay.
               </p>
-              <p>
-                Known for titles like "SHADOW CODE" and "JILVAIN".
-              </p>
+                <p>
+                  Known for titles like &quot;SHADOW CODE&quot; and &quot;JILVAIN&quot;.
+                </p>
             </div>
           </div>
         </div>

@@ -9,13 +9,13 @@ const Footer = () => {
   const isEnglish = pathname.startsWith('/en')
   const base = isEnglish ? '/en' : ''
   return (
-    <footer className="bg-black/90 text-white py-12 mt-auto">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <footer className="bg-gradient-to-b from-zinc-900 via-black to-zinc-900 text-gray-200 mt-auto">
+      <div className="container mx-auto px-4 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Links Section */}
           <div>
-          <h3 className="text-xl font-bold mb-4">{isEnglish ? 'Links' : 'リンク'}</h3>
-            <ul className="space-y-2">
+          <h3 className="text-2xl font-semibold mb-4 text-white">{isEnglish ? 'Links' : 'リンク'}</h3>
+            <ul className="space-y-2 text-sm md:text-base">
               <li>
                 <Link href={base === '' ? '/' : base} className="text-gray-300 hover:text-white transition-colors">
                   {isEnglish ? 'Home' : 'ホーム'}
@@ -51,8 +51,8 @@ const Footer = () => {
 
           {/* Social Links */}
           <div>
-          <h3 className="text-xl font-bold mb-4">{isEnglish ? 'Social' : 'ソーシャル'}</h3>
-            <ul className="space-y-2">
+          <h3 className="text-2xl font-semibold mb-4 text-white">{isEnglish ? 'Social' : 'ソーシャル'}</h3>
+            <ul className="space-y-2 text-sm md:text-base">
               <li>
                 <Link
                   href="https://x.com/mok4shiro"
@@ -99,8 +99,8 @@ const Footer = () => {
 
           {/* About Section */}
           <div>
-            <h3 className="text-xl font-bold mb-4">MARU</h3>
-            <p className="text-gray-300">
+            <h3 className="text-2xl font-semibold mb-4 text-white">MARU</h3>
+            <p className="text-gray-400">
               {isEnglish
                 ? 'Scenario writer publishing works on UZU. Handles various genres including sci-fi and mystery.'
                 : 'シナリオライター。UZUにて作品を公開中。SF、ミステリーなど、様々なジャンルの作品を手がけています。'}
@@ -108,7 +108,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+        <div className="border-t border-zinc-800 mt-12 pt-8 text-center text-gray-500 text-sm">
           <p>&copy; {new Date().getFullYear()} MARU. All rights reserved.</p>
         </div>
       </div>
