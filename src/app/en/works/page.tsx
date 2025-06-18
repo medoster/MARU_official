@@ -46,7 +46,7 @@ export default function EnglishWorks() {
                   <span className="px-2 py-1 bg-zinc-700 text-xs rounded text-white">Serious</span>
                 </div>
                 <p className="text-zinc-300 mb-4">
-                  In Eclipse City of 2324, citizens rely on the AI "NOVA". A mysterious death sparks a hunt for the truth.
+                  In Eclipse City of 2324, citizens rely on the AI &quot;NOVA&quot;. A mysterious death sparks a hunt for the truth.
                 </p>
                 <p className="text-gray-300 text-sm mb-4">Released: 2024/08/17</p>
                 <div className="flex justify-between items-center">
