@@ -39,7 +39,7 @@ const newsItems: NewsItem[] = [
   },
   {
     title: "JILVAIN リリース",
-    description: "サイバーパンクな作品\u300cJILVAIN\u300dをリリースしました。",
+    description: "ファンタジー世界を舞台にした作品\u300cJILVAIN\u300dをリリースしました。",
     date: "2025/02/18",
   },
   {
