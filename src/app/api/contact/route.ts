@@ -16,24 +16,24 @@ export async function POST(request: Request) {
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: process.env.CONTACT_EMAIL,
+        user: "maruoka@sally-inc.jp",
         // 注意: ここにはGmailのアプリパスワードを設定する必要があります
-        pass: process.env.GMAIL_APP_PASSWORD,
+        pass: "xnglwckdxipdktto",
       },
     });
 
     // メールの内容を設定
     const mailOptions = {
-      from: process.env.CONTACT_EMAIL,
-      to: process.env.CONTACT_EMAIL,
+      from: "maruoka@sally-inc.jp",
+      to: "maruoka@sally-inc.jp",
       subject: `[お問い合わせ] ${subject}`,
       text: `
-名前: ${name}
-メールアドレス: ${email}
-種別: ${category}
-${category === 'feedback' ? `対象作品: ${selectedWork}\n` : ''}
-メッセージ:
-${message}
+      名前: ${name}
+      メールアドレス: ${email}
+      種別: ${category}
+      ${category === 'feedback' ? `対象作品: ${selectedWork}\n` : ''}
+      メッセージ:
+      ${message}
       `,
     };
 
