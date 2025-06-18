@@ -25,14 +25,14 @@ export default function Header() {
             <Link href={base === '' ? '/' : base} className="text-white hover:text-cyan-400 transition-colors">
               {isEnglish ? "Home" : "ホーム"}
             </Link>
+            <Link href={`${base}/about`} className="text-white hover:text-cyan-400 transition-colors">
+              {isEnglish ? "Profile" : "プロフィール"}
+            </Link>
             <Link href={`${base}/works`} className="text-white hover:text-cyan-400 transition-colors">
               {isEnglish ? "Works" : "作品"}
             </Link>
             <Link href={`${base}/news`} className="text-white hover:text-cyan-400 transition-colors">
               {isEnglish ? "News" : "ニュース"}
-            </Link>
-            <Link href={`${base}/about`} className="text-white hover:text-cyan-400 transition-colors">
-              {isEnglish ? "Profile" : "プロフィール"}
             </Link>
             <Link href={`${base}/contact`} className="text-white hover:text-cyan-400 transition-colors">
               {isEnglish ? "Contact" : "お問い合わせ"}
@@ -66,6 +66,13 @@ export default function Header() {
               {isEnglish ? "Home" : "ホーム"}
             </Link>
             <Link
+              href={`${base}/about`}
+              className="py-3 text-white hover:text-cyan-400 transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {isEnglish ? "Profile" : "プロフィール"}
+            </Link>
+            <Link
               href={`${base}/works`}
               className="py-3 text-white hover:text-cyan-400 transition-colors"
               onClick={() => setIsMenuOpen(false)}
@@ -78,13 +85,6 @@ export default function Header() {
               onClick={() => setIsMenuOpen(false)}
             >
               {isEnglish ? "News" : "ニュース"}
-            </Link>
-            <Link
-              href={`${base}/about`}
-              className="py-3 text-white hover:text-cyan-400 transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {isEnglish ? "Profile" : "プロフィール"}
             </Link>
             <Link
               href={`${base}/contact`}
