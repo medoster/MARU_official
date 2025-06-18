@@ -1,22 +1,33 @@
-import { NextResponse } from 'next/server';
+import { NextResponse } from 'next/server'
+import type { NextRequest } from 'next/server'
 
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
   try {
-    const formText = await request.text();
-    const params = new URLSearchParams(formText);
-    const name = params.get("entry.1473372340") || "";
-    const email = params.get("entry.330209799") || "";
-    const category = params.get("entry.1337542843") || "";
-    const selectedWork = params.get("entry.695875724") || "";
-    const subject = params.get("entry.643649289") || "";
-    const message = params.get("entry.530101119") || "";
+    const formText = await request.text()
+    const params = new URLSearchParams(formText)
+    const name = params.get('entry.1473372340') || ''
+    const email = params.get('entry.330209799') || ''
+    const category = params.get('entry.1337542843') || ''
+    const selectedWork = params.get('entry.695875724') || ''
+    const subject = params.get('entry.643649289') || ''
+    const message = params.get('entry.530101119') || ''
+
+    // Google Form への送信
+    const formEndpoint = process.env.GOOGLE_FORM_ACTION_URL
+    if (formEndpoint) {
+      await fetch(formEndpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: params.toString(),
+      })
+    }
 
     // メール送信用のトランスポーターを作成
     const nodemailer = require('nodemailer');
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: 'maruoka@sally-inc.jp',
+        user: process.env.CONTACT_EMAIL,
         // 注意: ここにはGmailのアプリパスワードを設定する必要があります
         pass: process.env.GMAIL_APP_PASSWORD,
       },
@@ -24,8 +35,8 @@ export async function POST(request: Request) {
 
     // メールの内容を設定
     const mailOptions = {
-      from: 'maruoka@sally-inc.jp',
-      to: 'maruoka@sally-inc.jp',
+      from: process.env.CONTACT_EMAIL,
+      to: process.env.CONTACT_EMAIL,
       subject: `[お問い合わせ] ${subject}`,
       text: `
 名前: ${name}
