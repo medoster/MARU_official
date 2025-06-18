@@ -1,43 +1,47 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 
 const Footer = () => {
+  const pathname = usePathname()
+  const isEnglish = pathname.startsWith('/en')
+  const base = isEnglish ? '/en' : ''
   return (
     <footer className="bg-black/90 text-white py-12 mt-auto">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Links Section */}
           <div>
-            <h3 className="text-xl font-bold mb-4">リンク</h3>
+          <h3 className="text-xl font-bold mb-4">{isEnglish ? 'Links' : 'リンク'}</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/" className="text-gray-300 hover:text-white transition-colors">
-                  ホーム
+                <Link href={base === '' ? '/' : base} className="text-gray-300 hover:text-white transition-colors">
+                  {isEnglish ? 'Home' : 'ホーム'}
                 </Link>
               </li>
               <li>
-                <Link href="/works" className="text-gray-300 hover:text-white transition-colors">
-                  作品
+                <Link href={`${base}/works`} className="text-gray-300 hover:text-white transition-colors">
+                  {isEnglish ? 'Works' : '作品'}
                 </Link>
               </li>
               <li>
-                <Link href="/news" className="text-gray-300 hover:text-white transition-colors">
-                  ニュース
+                <Link href={`${base}/news`} className="text-gray-300 hover:text-white transition-colors">
+                  {isEnglish ? 'News' : 'ニュース'}
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-gray-300 hover:text-white transition-colors">
-                  プロフィール
+                <Link href={`${base}/about`} className="text-gray-300 hover:text-white transition-colors">
+                  {isEnglish ? 'Profile' : 'プロフィール'}
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-gray-300 hover:text-white transition-colors">
-                  お問い合わせ
+                <Link href={`${base}/contact`} className="text-gray-300 hover:text-white transition-colors">
+                  {isEnglish ? 'Contact' : 'お問い合わせ'}
                 </Link>
               </li>
               <li>
-                <Link href="/en" className="text-gray-300 hover:text-white transition-colors">
-                  EN
+                <Link href={isEnglish ? '/' : '/en'} className="text-gray-300 hover:text-white transition-colors">
+                  {isEnglish ? 'JP' : 'EN'}
                 </Link>
               </li>
             </ul>
@@ -45,7 +49,7 @@ const Footer = () => {
 
           {/* Social Links */}
           <div>
-            <h3 className="text-xl font-bold mb-4">ソーシャル</h3>
+          <h3 className="text-xl font-bold mb-4">{isEnglish ? 'Social' : 'ソーシャル'}</h3>
             <ul className="space-y-2">
               <li>
                 <Link
@@ -95,8 +99,9 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-bold mb-4">MARU</h3>
             <p className="text-gray-300">
-              シナリオライター。UZUにて作品を公開中。
-              SF、ミステリーなど、様々なジャンルの作品を手がけています。
+              {isEnglish
+                ? 'Scenario writer publishing works on UZU. Handles various genres including sci-fi and mystery.'
+                : 'シナリオライター。UZUにて作品を公開中。SF、ミステリーなど、様々なジャンルの作品を手がけています。'}
             </p>
           </div>
         </div>

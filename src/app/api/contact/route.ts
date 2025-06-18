@@ -16,7 +16,7 @@ export async function POST(request: Request) {
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: 'maruoka@sally-inc.jp',
+        user: process.env.CONTACT_EMAIL,
         // 注意: ここにはGmailのアプリパスワードを設定する必要があります
         pass: process.env.GMAIL_APP_PASSWORD,
       },
@@ -24,8 +24,8 @@ export async function POST(request: Request) {
 
     // メールの内容を設定
     const mailOptions = {
-      from: 'maruoka@sally-inc.jp',
-      to: 'maruoka@sally-inc.jp',
+      from: process.env.CONTACT_EMAIL,
+      to: process.env.CONTACT_EMAIL,
       subject: `[お問い合わせ] ${subject}`,
       text: `
 名前: ${name}
