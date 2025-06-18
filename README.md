@@ -2,19 +2,36 @@
 
 This repository contains the source code for the MARU project built with Next.js.
 
-## Setup
+## Prerequisites
 
-1. Install dependencies using **pnpm**:
-   ```bash
-   pnpm install
-   ```
-2. Copy `.env.example` to `.env` and fill in the required values:
-   ```bash
-   cp .env.example .env
-   ```
-   Update `GMAIL_APP_PASSWORD` with the Gmail application password used for sending contact form emails.
+- [Node.js](https://nodejs.org/) (version 18 or higher is recommended)
+- [pnpm](https://pnpm.io/) package manager
 
-3. Start the development server:
-   ```bash
-   pnpm dev
-   ```
+## Installation
+
+Install all project dependencies with pnpm:
+
+```bash
+pnpm install
+```
+
+## Configuration
+
+Copy `.env.example` to `.env` and fill in the required values.
+The only environment variable currently required is the Gmail application password
+used for sending emails from the contact form:
+
+```bash
+cp .env.example .env
+# Edit .env and set GMAIL_APP_PASSWORD
+```
+
+## Development server
+
+Start the Next.js development server with:
+
+```bash
+pnpm dev
+```
+
+The app will be available at `http://localhost:3000` by default.
