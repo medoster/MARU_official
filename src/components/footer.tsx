@@ -21,6 +21,11 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/news" className="text-gray-300 hover:text-white transition-colors">
+                  ニュース
+                </Link>
+              </li>
+              <li>
                 <Link href="/about" className="text-gray-300 hover:text-white transition-colors">
                   プロフィール
                 </Link>
@@ -28,6 +33,11 @@ const Footer = () => {
               <li>
                 <Link href="/contact" className="text-gray-300 hover:text-white transition-colors">
                   お問い合わせ
+                </Link>
+              </li>
+              <li>
+                <Link href="/en" className="text-gray-300 hover:text-white transition-colors">
+                  EN
                 </Link>
               </li>
             </ul>
