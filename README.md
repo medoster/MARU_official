@@ -39,3 +39,7 @@ pnpm dev
 ```
 
 The app will be available at `http://localhost:3000` by default.
+
+## Theme
+
+This project uses a fixed design. Switching between dark and light modes is not required.
