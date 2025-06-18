@@ -56,12 +56,12 @@ export default function ShadowCodePage() {
 
             <TabsContent value="story" className="bg-zinc-800 p-6 rounded-lg shadow-sm border border-zinc-700">
               <h2 className="text-2xl font-bold mb-4 text-white">Story</h2>
-              <p className="text-zinc-300 mb-4">
-                The year is 2324 in Eclipse City. Citizens rely on the city AI "NOVA" via chips implanted in their heads.
-              </p>
-              <p className="text-zinc-300 mb-4">
-                One night a strange death occurs. The party begins to uncover the secrets hidden in the city's shadows.
-              </p>
+                <p className="text-zinc-300 mb-4">
+                  The year is 2324 in Eclipse City. Citizens rely on the city AI &quot;NOVA&quot; via chips implanted in their heads.
+                </p>
+                <p className="text-zinc-300 mb-4">
+                  One night a strange death occurs. The party begins to uncover the secrets hidden in the city&apos;s shadows.
+                </p>
               <p className="text-zinc-300">
                 Follow the clues and reveal the truth behind NOVA.
               </p>
