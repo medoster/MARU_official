@@ -14,7 +14,7 @@ export default function MobileNav() {
   const close = () => setOpen(false)
 
   return (
-    <div className="md:hidden">
+    <div className="md:hidden relative">
       <button
         className="relative z-50 w-8 h-8 focus:outline-none"
         aria-label="Toggle menu"
@@ -31,7 +31,7 @@ export default function MobileNav() {
         />
       </button>
       {open && (
-        <nav className="fixed inset-x-0 top-16 bottom-0 z-40 bg-black border-t border-zinc-800 overflow-y-auto">
+        <nav className="fixed inset-x-0 top-16 bottom-0 z-50 bg-black border-t border-zinc-800 overflow-y-auto">
           <div className="flex flex-col py-4 px-4">
             <Link href={base === '' ? '/' : base} className="py-3 text-white hover:text-cyan-400 transition-colors" onClick={close}>
               {isEnglish ? 'Home' : 'ホーム'}
