@@ -1,13 +1,10 @@
 "use client"
 
-import { useState } from "react"
 import { usePathname } from "next/navigation"
 import Link from "next/link"
-import { Menu, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import MobileNav from "./mobile-nav"
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const pathname = usePathname()
   const isEnglish = pathname.startsWith("/en")
   const base = isEnglish ? "/en" : ""
@@ -42,67 +39,11 @@ export default function Header() {
             </Link>
           </nav>
 
-          {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden text-white"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X /> : <Menu />}
-          </Button>
+          <MobileNav />
         </div>
       </div>
 
-      {/* Mobile Navigation */}
-      {isMenuOpen && (
-        <div className="md:hidden fixed inset-x-0 top-16 bottom-0 z-40 bg-black border-t border-zinc-800 overflow-y-auto">
-          <nav className="flex flex-col py-4 px-4">
-            <Link
-              href={base === '' ? '/' : base}
-              className="py-3 text-white hover:text-cyan-400 transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {isEnglish ? "Home" : "ホーム"}
-            </Link>
-            <Link
-              href={`${base}/about`}
-              className="py-3 text-white hover:text-cyan-400 transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {isEnglish ? "Profile" : "プロフィール"}
-            </Link>
-            <Link
-              href={`${base}/works`}
-              className="py-3 text-white hover:text-cyan-400 transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {isEnglish ? "Works" : "作品"}
-            </Link>
-            <Link
-              href={`${base}/news`}
-              className="py-3 text-white hover:text-cyan-400 transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {isEnglish ? "News" : "ニュース"}
-            </Link>
-            <Link
-              href={`${base}/contact`}
-              className="py-3 text-white hover:text-cyan-400 transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {isEnglish ? "Contact" : "お問い合わせ"}
-            </Link>
-            <Link
-              href={isEnglish ? "/" : "/en"}
-              className="py-3 text-white hover:text-cyan-400 transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {isEnglish ? "JP" : "EN"}
-            </Link>
-          </nav>
-        </div>
-      )}
+
     </header>
   )
 }
