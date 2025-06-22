@@ -9,7 +9,10 @@ export const metadata = {
     'murder mystery app',
     'UZU',
     'MARU',
-  ]
+  ],
+  alternates: {
+    canonical: '/en/works',
+  }
 }
 
 import Link from 'next/link'

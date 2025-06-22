@@ -17,6 +17,9 @@ export const metadata: Metadata = {
     "UZU",
     "MARU",
   ],
+  alternates: {
+    canonical: '/works/shadow-code',
+  },
 }
 
 export default function ShadowCodePage() {

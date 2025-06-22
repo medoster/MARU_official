@@ -6,7 +6,10 @@ export const metadata = {
     "murder mystery app",
     "UZU",
     "MARU",
-  ]
+  ],
+  alternates: {
+    canonical: '/en',
+  },
 }
 
 export default function EnglishHome() {

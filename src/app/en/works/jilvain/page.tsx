@@ -17,6 +17,9 @@ export const metadata: Metadata = {
     "UZU",
     "MARU",
   ],
+  alternates: {
+    canonical: '/en/works/jilvain',
+  },
 }
 
 export default function JilvainPage() {

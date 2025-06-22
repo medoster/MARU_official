@@ -1,7 +1,10 @@
 export const metadata = {
   title: 'News - MARU',
   description: 'Latest updates about MARU, a creator of murder mystery (madamis) scenarios.',
-  keywords: ['MARU', 'murder mystery', 'murder mystery app', 'UZU']
+  keywords: ['MARU', 'murder mystery', 'murder mystery app', 'UZU'],
+  alternates: {
+    canonical: '/en/news',
+  }
 }
 
 interface NewsItem {

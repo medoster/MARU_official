@@ -18,6 +18,9 @@ export const metadata: Metadata = {
     "UZU",
     "MARU",
   ],
+  alternates: {
+    canonical: '/works/inbou',
+  },
 }
 
 export default function InbouPage() {

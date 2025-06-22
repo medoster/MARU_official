@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     "マーダーミステリーアプリ",
     "UZU",
   ],
+  alternates: {
+    canonical: '/about',
+  },
 }
 
 export default function AboutPage() {

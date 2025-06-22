@@ -14,6 +14,9 @@ export const metadata: Metadata = {
     "UZU",
     "MARU",
   ],
+  alternates: {
+    canonical: '/',
+  },
 }
 
 export default function Home() {

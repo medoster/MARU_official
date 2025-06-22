@@ -10,6 +10,9 @@ export const metadata: Metadata = {
     "マーダーミステリーアプリ",
     "UZU",
   ],
+  alternates: {
+    canonical: "/contact",
+  },
 }
 
 export default function ContactPage() {

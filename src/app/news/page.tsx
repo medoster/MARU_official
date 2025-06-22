@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "ニュース - MARU",
   description: "マーダーミステリー・マダミス制作サークルMARUに関する最新情報を掲載しています。",
   keywords: ["MARU", "マーダーミステリー", "マーダーミステリーアプリ", "UZU"],
+  alternates: {
+    canonical: '/news',
+  },
 }
 
 interface NewsItem {

@@ -17,6 +17,9 @@ export const metadata: Metadata = {
     "UZU",
     "MARU",
   ],
+  alternates: {
+    canonical: '/works/sokusei-ho',
+  },
 }
 
 export default function SokuseiHoPage() {
