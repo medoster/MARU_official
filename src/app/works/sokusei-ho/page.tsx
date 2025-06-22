@@ -4,6 +4,20 @@ import { ArrowLeft, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent } from "@/components/ui/card"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "即席HO - MARU",
+  description: "UZUで遊べるマーダーミステリー『即席HO』の詳細ページです。",
+  keywords: [
+    "即席HO",
+    "マーダーミステリー",
+    "マダミス",
+    "マーダーミステリーアプリ",
+    "UZU",
+    "MARU",
+  ],
+}
 
 export default function SokuseiHoPage() {
   return (

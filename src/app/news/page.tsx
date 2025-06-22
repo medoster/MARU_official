@@ -1,4 +1,11 @@
 import TwitterFeed from "@/components/twitter-feed"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "ニュース - MARU",
+  description: "マーダーミステリー・マダミス制作サークルMARUに関する最新情報を掲載しています。",
+  keywords: ["MARU", "マーダーミステリー", "マーダーミステリーアプリ", "UZU"],
+}
 
 interface NewsItem {
   title: string

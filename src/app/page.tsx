@@ -7,6 +7,13 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "MARU",
+  description: "マーダーミステリー・マダミス制作サークルMARUの公式サイトです。",
+  keywords: [
+    "マーダーミステリー",
+    "マーダーミステリーアプリ",
+    "UZU",
+    "MARU",
+  ],
 }
 
 export default function Home() {

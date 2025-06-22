@@ -1,5 +1,7 @@
 export const metadata = {
-  title: 'About MARU'
+  title: 'About MARU',
+  description: 'Learn more about MARU, creator of unique murder mystery (madamis) scenarios.',
+  keywords: ['MARU', 'murder mystery', 'murder mystery app', 'UZU']
 }
 
 export default function EnglishAbout() {

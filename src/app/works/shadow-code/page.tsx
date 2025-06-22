@@ -4,6 +4,20 @@ import { ArrowLeft, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent } from "@/components/ui/card"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "SHADOW CODE - MARU",
+  description: "UZUで遊べるマーダーミステリー『SHADOW CODE』の詳細ページです。",
+  keywords: [
+    "SHADOW CODE",
+    "マーダーミステリー",
+    "マダミス",
+    "マーダーミステリーアプリ",
+    "UZU",
+    "MARU",
+  ],
+}
 
 export default function ShadowCodePage() {
   return (
