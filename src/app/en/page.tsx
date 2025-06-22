@@ -1,5 +1,12 @@
 export const metadata = {
-  title: "MARU - Murder Mystery Writer"
+  title: "MARU - Murder Mystery Writer",
+  description: "Official website of MARU, a Japanese murder mystery (madamis) writer.",
+  keywords: [
+    "murder mystery",
+    "murder mystery app",
+    "UZU",
+    "MARU",
+  ]
 }
 
 export default function EnglishHome() {

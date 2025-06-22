@@ -1,5 +1,17 @@
 import Link from "next/link"
 import Image from "next/image"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "プロフィール - MARU",
+  description: "マーダーミステリー・マダミス制作サークルMARUのプロフィールページです。",
+  keywords: [
+    "MARU",
+    "マーダーミステリー",
+    "マーダーミステリーアプリ",
+    "UZU",
+  ],
+}
 
 export default function AboutPage() {
   return (

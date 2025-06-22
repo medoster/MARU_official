@@ -4,6 +4,20 @@ import { ArrowLeft, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent } from "@/components/ui/card"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "JILVAIN - MARU",
+  description: "UZUで遊べるマーダーミステリー『JILVAIN』の詳細ページです。",
+  keywords: [
+    "JILVAIN",
+    "マーダーミステリー",
+    "マダミス",
+    "マーダーミステリーアプリ",
+    "UZU",
+    "MARU",
+  ],
+}
 
 export default function JilvainPage() {
   return (
