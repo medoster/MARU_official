@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import Header from "../components/header";
 import Footer from "../components/footer";
+import LanguageSetter from "../components/language-setter";
 import React from "react";
 import Script from "next/script";
 
@@ -96,6 +97,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <LanguageSetter />
           <div className="flex flex-col min-h-screen">
             <Header />
             <main className="pt-16 flex-grow">
