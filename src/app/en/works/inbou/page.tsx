@@ -4,6 +4,20 @@ import { ArrowLeft, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent } from "@/components/ui/card"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Not a Conspiracy! - MARU",
+  description: "Details for the comedy mystery 'Not a Conspiracy!' available on the UZU app.",
+  keywords: [
+    "Not a Conspiracy!",
+    "murder mystery",
+    "madamis",
+    "murder mystery app",
+    "UZU",
+    "MARU",
+  ],
+}
 
 export default function InbouPage() {
   return (

@@ -1,6 +1,18 @@
 "use client"
 
 import type React from "react"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "お問い合わせ - MARU",
+  description: "マーダーミステリー・マダミス制作サークルMARUへのお問い合わせフォームです。",
+  keywords: [
+    "MARU",
+    "マーダーミステリー",
+    "マーダーミステリーアプリ",
+    "UZU",
+  ],
+}
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"

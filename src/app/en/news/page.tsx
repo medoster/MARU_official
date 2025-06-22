@@ -1,4 +1,8 @@
-export const metadata = { title: 'News - MARU' }
+export const metadata = {
+  title: 'News - MARU',
+  description: 'Latest updates about MARU, a creator of murder mystery (madamis) scenarios.',
+  keywords: ['MARU', 'murder mystery', 'murder mystery app', 'UZU']
+}
 
 interface NewsItem {
   title: string

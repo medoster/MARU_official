@@ -18,16 +18,17 @@ pnpm install
 ## Configuration
 
 Copy `.env.example` to `.env` and fill in the required values.
-The contact form requires two environment variables:
+The project requires several environment variables:
 
 * `GMAIL_APP_PASSWORD` – your Gmail application password
 * `CONTACT_EMAIL` – the Gmail address used by the contact form
+* `NEXT_PUBLIC_SITE_URL` – the base URL of the website used for SEO metadata
 
 Set both variables in `.env` before running the application:
 
 ```bash
 cp .env.example .env
-# Edit .env and set GMAIL_APP_PASSWORD and CONTACT_EMAIL
+# Edit .env and set GMAIL_APP_PASSWORD, CONTACT_EMAIL and NEXT_PUBLIC_SITE_URL
 ```
 
 ## Development server

@@ -1,6 +1,13 @@
 "use client"
 
 import { useState } from 'react'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Contact - MARU',
+  description: 'Get in touch with MARU, the murder mystery (madamis) writer, using the contact form.',
+  keywords: ['MARU', 'murder mystery', 'murder mystery app', 'UZU']
+}
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'

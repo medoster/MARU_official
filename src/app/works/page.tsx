@@ -3,6 +3,21 @@ import Image from "next/image"
 import { ChevronRight, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "作品一覧 - MARU",
+  description: "MARUが制作したマーダーミステリー・マダミス作品の一覧です。",
+  keywords: [
+    "SHADOW CODE",
+    "陰謀論者じゃないもん！",
+    "即席HO",
+    "JILVAIN",
+    "マーダーミステリーアプリ",
+    "UZU",
+    "MARU",
+  ],
+}
 
 export default function WorksPage() {
   return (

@@ -1,5 +1,15 @@
 export const metadata = {
-  title: 'Works - MARU'
+  title: 'Works - MARU',
+  description: 'A collection of murder mystery (madamis) scenarios available on the UZU app.',
+  keywords: [
+    'SHADOW CODE',
+    'Not a Conspiracy!',
+    'Instant HO',
+    'JILVAIN',
+    'murder mystery app',
+    'UZU',
+    'MARU',
+  ]
 }
 
 import Link from 'next/link'

@@ -4,6 +4,21 @@ import { ArrowLeft, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent } from "@/components/ui/card"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "陰謀論者じゃないもん！ - MARU",
+  description:
+    "マーダーミステリーアプリUZUで遊べる『陰謀論者じゃないもん！』の詳細ページです。",
+  keywords: [
+    "陰謀論者じゃないもん！",
+    "マーダーミステリー",
+    "マダミス",
+    "マーダーミステリーアプリ",
+    "UZU",
+    "MARU",
+  ],
+}
 
 export default function InbouPage() {
   return (
