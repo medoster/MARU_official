@@ -171,7 +171,7 @@ export default function JilvainPage() {
                   </div>
                   <div className="bg-zinc-700 p-3 rounded-md text-center">
                     <p className="text-sm text-zinc-400">1人あたり料金</p>
-                    <p className="text-xl font-bold text-white">700円</p>
+                    <p className="text-xl font-bold text-white">700コイン</p>
                     <p className="text-xs text-zinc-400">(¥1000相当)</p>
                   </div>
                 </div>

@@ -88,7 +88,7 @@ export default function HanagaraPage() {
                 <Card className="bg-zinc-700 border-zinc-600 shadow-sm">
                   <CardContent className="p-6 flex gap-4">
                     <div className="w-24 h-24 relative flex-shrink-0 overflow-hidden rounded-full">
-                      <Image src="/images/フランク.png" alt="フランク" fill className="object-cover" />
+                      <Image src="/images/frank.png" alt="フランク" fill className="object-cover" />
                     </div>
                     <div>
                       <h3 className="text-xl font-bold mb-1 text-white">フランク</h3>
@@ -101,7 +101,7 @@ export default function HanagaraPage() {
                 <Card className="bg-zinc-700 border-zinc-600 shadow-sm">
                   <CardContent className="p-6 flex gap-4">
                     <div className="w-24 h-24 relative flex-shrink-0 overflow-hidden rounded-full">
-                      <Image src="/images/クリス.png" alt="クリス" fill className="object-cover" />
+                      <Image src="/images/chris.png" alt="クリス" fill className="object-cover" />
                     </div>
                     <div>
                       <h3 className="text-xl font-bold mb-1 text-white">クリス</h3>
@@ -114,7 +114,7 @@ export default function HanagaraPage() {
                 <Card className="bg-zinc-700 border-zinc-600 shadow-sm">
                   <CardContent className="p-6 flex gap-4">
                     <div className="w-24 h-24 relative flex-shrink-0 overflow-hidden rounded-full">
-                      <Image src="/images/トーマス.png" alt="トーマス" fill className="object-cover" />
+                      <Image src="/images/tomas.png" alt="トーマス" fill className="object-cover" />
                     </div>
                     <div>
                       <h3 className="text-xl font-bold mb-1 text-white">トーマス</h3>
@@ -127,7 +127,7 @@ export default function HanagaraPage() {
                 <Card className="bg-zinc-700 border-zinc-600 shadow-sm">
                   <CardContent className="p-6 flex gap-4">
                     <div className="w-24 h-24 relative flex-shrink-0 overflow-hidden rounded-full">
-                      <Image src="/images/デイジー.png" alt="デイジー" fill className="object-cover" />
+                      <Image src="/images/daisy.png" alt="デイジー" fill className="object-cover" />
                     </div>
                     <div>
                       <h3 className="text-xl font-bold mb-1 text-white">デイジー</h3>
@@ -140,7 +140,7 @@ export default function HanagaraPage() {
                 <Card className="bg-zinc-700 border-zinc-600 shadow-sm">
                   <CardContent className="p-6 flex gap-4">
                     <div className="w-24 h-24 relative flex-shrink-0 overflow-hidden rounded-full">
-                      <Image src="/images/ベル.png" alt="ベル" fill className="object-cover" />
+                      <Image src="/images/bell.png" alt="ベル" fill className="object-cover" />
                     </div>
                     <div>
                       <h3 className="text-xl font-bold mb-1 text-white">ベル</h3>
@@ -168,7 +168,8 @@ export default function HanagaraPage() {
                   </div>
                   <div className="bg-zinc-700 p-3 rounded-md text-center">
                     <p className="text-sm text-zinc-400">1人あたり料金</p>
-                    <p className="text-xl font-bold text-white">無料</p>
+                    <p className="text-xl font-bold text-white">490コイン</p>
+                    <p className="text-xs text-zinc-400">(¥700相当)</p>
                   </div>
                 </div>
               </div>
@@ -193,7 +194,15 @@ export default function HanagaraPage() {
 
               <div className="mb-6">
                 <h3 className="text-xl font-semibold mb-2 text-white">制作者コメント</h3>
-                <p className="text-zinc-300">キャラクターイラスト:🍬 / カバーイラスト:ita</p>
+                <p className="text-zinc-300">これまでMARUの作品は「今までにない何か」をモットーに、トリッキーな構造や仕掛けを追求してきた一方で、王道のマーダーミステリーを求める方々との間に、少なからぬミスマッチがあったとも感じていました。
+
+<br></br> 自分の秘密が暴かれないように犯人を探すスリル。真実にたどり着くためには、どこまで自分をさらけ出すべきか──そんな駆け引きの醍醐味。マーダーミステリーに少し飽きを感じてしまった方にも、初めてマダミスを知った頃の“ドキドキ”を思い出していただけるようなシナリオを目指しています。
+
+<br></br> 本作では、もし犯人に自分の秘密が知られてしまった場合、自動的に“犯人を守る側”へと立場が変わるという仕組みを採用しています。
+
+<br></br> そろそろ飽きていませんか？すべての秘密を開示することが前提となったマーダーミステリーに。
+
+<br></br> これまでのMARU作品とは一線を画す、新たな戦略性と推理の楽しさを、ぜひご体験ください。</p>
               </div>
 
               <div className="mt-8">

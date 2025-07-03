@@ -16,8 +16,8 @@ interface NewsItem {
 const newsItems: NewsItem[] = [
   {
     title: "花枯らの檻 今夏リリース予定",
-    description: "マーダーミステリー最新作\u300c花枯らの檻\u300dを今夏リリース予定です。",
-    date: "2025年夏予定",
+    description: "マーダーミステリー最新作\u300c花枯らの檻\u300dをリリースします。",
+    date: "2025/07/18",
   },
   {
     title: "なぞねこブートキャンプ講師",

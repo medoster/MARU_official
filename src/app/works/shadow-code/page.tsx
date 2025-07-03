@@ -181,7 +181,8 @@ export default function ShadowCodePage() {
                   </div>
                   <div className="bg-zinc-700 p-3 rounded-md text-center">
                     <p className="text-sm text-zinc-400">1人あたり料金</p>
-                    <p className="text-xl font-bold text-white">490円</p>
+                    <p className="text-xl font-bold text-white">490コイン
+                    </p>
                     <p className="text-xs text-zinc-400">(¥700相当)</p>
                   </div>
                 </div>
