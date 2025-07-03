@@ -74,10 +74,13 @@ export default function AboutPage() {
                 UZUアプリでマーダーミステリーを制作しているMARUです。
                 プレイヤーが没入できる世界観と、今までにないギミック体験が特徴です。
               </p>
-              <p className="text-zinc-300">
+              <p className="text-zinc-300 mb-4">
                 「SHADOW CODE」「JILVAIN」などの作品を手がけています。
                 UZUならではの機能を活かした、独自のギミックを取り入れたシナリオ作りを心がけています。
                 また、他作品のUZUへの移植作業や実装も行なっています。
+              </p>
+              <p className="text-zinc-300">
+                2025年7月18日に最新作「花枯らの檻」をリリースしました。
               </p>
             </div>
 
@@ -106,6 +109,12 @@ export default function AboutPage() {
                   <span className="w-32 text-gray-300">2025/02/18</span>
                   <Link href="/works/jilvain" className="text-gray-300 hover:text-white">
                     JILVAIN
+                  </Link>
+                </li>
+                <li className="flex items-center">
+                  <span className="w-32 text-gray-300">2025/07/18</span>
+                  <Link href="/works/hanagara" className="text-gray-300 hover:text-white">
+                    花枯らの檻
                   </Link>
                 </li>
               </ul>
