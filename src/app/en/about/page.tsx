@@ -58,6 +58,9 @@ export default function EnglishAbout() {
                 <p>
                   Known for titles like &quot;SHADOW CODE&quot; and &quot;JILVAIN&quot;.
                 </p>
+                <p>
+                  The latest work &quot;Hanagara no Ori&quot; was released on July 18, 2025.
+                </p>
             </div>
           </div>
         </div>
