@@ -4,7 +4,7 @@ import { useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Menu, X } from "lucide-react"
+import { Menu } from "lucide-react"
 
 export default function MobileNav() {
   const [open, setOpen] = useState(false)
@@ -16,14 +16,10 @@ export default function MobileNav() {
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
         <button
-          className="relative z-50 w-8 h-8 text-white focus:outline-none md:hidden"
+          className="relative z-50 h-8 w-8 text-white focus:outline-none md:hidden"
           aria-label="Toggle menu"
         >
-          {open ? (
-            <X className="w-8 h-8" />
-          ) : (
-            <Menu className="w-8 h-8" />
-          )}
+          <Menu className="h-6 w-6" />
         </button>
       </SheetTrigger>
       <SheetContent

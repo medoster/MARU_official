@@ -12,9 +12,9 @@ export default function Header() {
   const base = isEnglish ? "/en" : ""
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-zinc-800 bg-black/80 backdrop-blur-md">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-zinc-800 bg-black/80 backdrop-blur-md">
       <div className="container mx-auto px-4">
-        <div className="relative flex h-12 items-center justify-between md:h-16">
+        <div className="relative flex h-11 items-center justify-between md:h-16">
           <MobileNav />
           <Link
             href={isEnglish ? "/en" : "/"}
