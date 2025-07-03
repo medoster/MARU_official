@@ -15,7 +15,7 @@ export default function MobileNav() {
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
         <button
-          className="relative z-50 w-8 h-8 focus:outline-none md:hidden"
+          className={`relative z-50 w-8 h-8 focus:outline-none md:hidden ${open ? 'hidden' : ''}`}
           aria-label="Toggle menu"
         >
           <span
@@ -33,6 +33,9 @@ export default function MobileNav() {
         side="top"
         className="border-b border-zinc-800 bg-black p-0 pt-4 text-white"
       >
+        <div className="relative py-2 border-b border-zinc-800 text-center">
+          <span className="text-lg font-bold">MARU</span>
+        </div>
         <nav className="flex flex-col px-4 pb-4">
           <Link
             href={base === '' ? '/' : base}
