@@ -82,12 +82,16 @@
 
 @keyframes heroSlideBackground {
   0%,
-  45% {
+  30% {
     background-image: url("/images/shadow-code-cover.png");
   }
-  50%,
-  95% {
+  35%,
+  65% {
     background-image: url("/images/jilvain-cover.png");
+  }
+  70%,
+  95% {
+    background-image: url("/images/hanagara_KV.jpg");
   }
   100% {
     background-image: url("/images/shadow-code-cover.png");
