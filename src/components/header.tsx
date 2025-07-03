@@ -2,7 +2,9 @@
 
 import { usePathname } from "next/navigation"
 import Link from "next/link"
+import { ShoppingBag } from "lucide-react"
 import MobileNav from "./mobile-nav"
+import SearchDialog from "./search-dialog"
 
 export default function Header() {
   const pathname = usePathname()
@@ -10,15 +12,25 @@ export default function Header() {
   const base = isEnglish ? "/en" : ""
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-zinc-800">
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-zinc-800 bg-black/80 backdrop-blur-md">
       <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center h-16">
-          <Link href={isEnglish ? "/en" : "/"} className="text-2xl font-bold tracking-wider text-white">
+        <div className="relative flex h-12 items-center justify-between md:h-16">
+          <MobileNav />
+          <Link
+            href={isEnglish ? "/en" : "/"}
+            className="absolute left-1/2 -translate-x-1/2 text-xl font-bold tracking-wider text-white md:static md:translate-x-0"
+          >
             MARU
           </Link>
+          <div className="flex items-center gap-4 md:hidden">
+            <SearchDialog />
+            <Link href={`${base}/contact`} aria-label="Bag" className="p-2 text-white">
+              <ShoppingBag className="h-5 w-5" />
+            </Link>
+          </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6">
+          <nav className="hidden md:flex items-center space-x-6 ml-auto">
             <Link href={base === '' ? '/' : base} className="text-white hover:text-cyan-400 transition-colors">
               {isEnglish ? "Home" : "ホーム"}
             </Link>
@@ -38,8 +50,6 @@ export default function Header() {
               {isEnglish ? "JP" : "EN"}
             </Link>
           </nav>
-
-          <MobileNav />
         </div>
       </div>
 
