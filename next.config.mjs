@@ -9,9 +9,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  experimental: {
-    appDir: true,
-  },
+  // The app directory is enabled by default in Next.js 15
 }
 
 export default nextConfig
