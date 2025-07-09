@@ -4,6 +4,7 @@ import { ArrowLeft, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent } from "@/components/ui/card"
+import PageHero from "@/components/PageHero"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -23,24 +24,20 @@ export default function HanagaraPage() {
   return (
     <div className="pt-16 min-h-screen bg-black">
       {/* Hero Section */}
-      <section className="relative w-full h-[50vh] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/30 z-10" />
-        <Image src="/images/hanagara_KV.jpg" alt="花枯らの檻" fill className="object-cover" priority />
-        <div className="absolute inset-0 flex items-center justify-center z-20">
-          <div className="bg-black/80 backdrop-blur-sm px-8 py-4 rounded-lg max-w-3xl text-center">
-            <h1 className="text-4xl md:text-6xl font-bold tracking-wider mb-4 text-white">花枯らの檻</h1>
-            <div className="flex flex-wrap gap-2 mb-4 justify-center">
-              <span className="px-2 py-1 bg-zinc-700 text-sm rounded text-white">SF</span>
-              <span className="px-2 py-1 bg-zinc-700 text-sm rounded text-white">コメディ</span>
-              <span className="px-2 py-1 bg-zinc-700 text-sm rounded text-white">駆け引きが楽しい</span>
-              <span className="px-2 py-1 bg-zinc-700 text-sm rounded text-white">推理を楽しむ</span>
-              <span className="px-2 py-1 bg-zinc-700 text-sm rounded text-white">トリッキー</span>
-              <span className="px-2 py-1 bg-zinc-700 text-sm rounded text-white">BGM･SE付き</span>
-            </div>
-            <p className="text-zinc-300">公開日: 2025/07/18</p>
-          </div>
+      <PageHero
+        title="花枯らの檻"
+        slides={[{ src: "/images/hanagara_KV.jpg", alt: "花枯らの檻" }]}
+      >
+        <div className="flex flex-wrap gap-2 mb-4 justify-center">
+          <span className="px-2 py-1 bg-zinc-700 text-sm rounded text-white">SF</span>
+          <span className="px-2 py-1 bg-zinc-700 text-sm rounded text-white">コメディ</span>
+          <span className="px-2 py-1 bg-zinc-700 text-sm rounded text-white">駆け引きが楽しい</span>
+          <span className="px-2 py-1 bg-zinc-700 text-sm rounded text-white">推理を楽しむ</span>
+          <span className="px-2 py-1 bg-zinc-700 text-sm rounded text-white">トリッキー</span>
+          <span className="px-2 py-1 bg-zinc-700 text-sm rounded text-white">BGM･SE付き</span>
         </div>
-        <div className="relative z-20 container mx-auto px-4 h-full">
+        <p className="text-zinc-300">公開日: 2025/07/18</p>
+        <div className="relative container mx-auto px-4 h-full">
           <Link
             href="/works"
             className="absolute top-8 left-4 flex items-center text-white hover:text-cyan-400 mb-4 w-fit bg-black/60 px-3 py-1 rounded"
@@ -49,7 +46,7 @@ export default function HanagaraPage() {
             作品一覧に戻る
           </Link>
         </div>
-      </section>
+      </PageHero>
 
       {/* Content Section */}
       <section className="py-16 bg-zinc-900">

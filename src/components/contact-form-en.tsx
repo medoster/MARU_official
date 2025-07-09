@@ -4,6 +4,7 @@ import { useState } from 'react'
 import type React from 'react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import PageHero from './PageHero'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
@@ -64,14 +65,7 @@ export default function ContactFormEn() {
 
   return (
     <div className="pt-16 min-h-screen bg-black">
-      <section className="py-16 bg-zinc-800">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl font-bold mb-4 text-white">Contact</h1>
-          <p className="text-zinc-300 max-w-2xl mx-auto">
-            Send us a message using the form below.
-          </p>
-        </div>
-      </section>
+      <PageHero title="Contact" subtitle="Send us a message using the form below." />
       <section className="py-16 bg-zinc-900">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">

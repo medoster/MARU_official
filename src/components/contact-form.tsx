@@ -4,6 +4,7 @@ import { useState } from "react"
 import type React from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import PageHero from "./PageHero"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
@@ -73,14 +74,7 @@ export default function ContactForm() {
   return (
     <div className="pt-16 min-h-screen bg-black">
       {/* Page Header */}
-      <section className="py-16 bg-zinc-800">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl font-bold mb-4 text-white">お問い合わせ</h1>
-          <p className="text-zinc-300 max-w-2xl mx-auto">
-            ご質問、ご依頼などがございましたら、以下のフォームからお気軽にお問い合わせください。
-          </p>
-        </div>
-      </section>
+      <PageHero title="お問い合わせ" subtitle="ご質問、ご依頼などがございましたら、以下のフォームからお気軽にお問い合わせください。" />
 
       {/* Contact Form */}
       <section className="py-16 bg-zinc-900">

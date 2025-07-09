@@ -18,18 +18,12 @@ import Image from 'next/image'
 import { ChevronRight, ExternalLink } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
+import PageHero from '@/components/PageHero'
 
 export default function EnglishWorks() {
   return (
     <div className="pt-16 min-h-screen bg-black">
-      <section className="py-16 bg-zinc-800">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl font-bold mb-4 text-white">Works</h1>
-          <p className="text-zinc-300 max-w-2xl mx-auto">
-            A selection of scenarios available on the UZU app.
-          </p>
-        </div>
-      </section>
+      <PageHero title="Works" subtitle="A selection of scenarios available on the UZU app." />
       <section className="py-16 bg-zinc-900">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

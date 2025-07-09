@@ -1,4 +1,5 @@
 import TwitterFeed from "@/components/twitter-feed"
+import PageHero from "@/components/PageHero"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -79,14 +80,7 @@ const newsItems: NewsItem[] = [
 export default function NewsPage() {
   return (
     <div className="pt-16 min-h-screen bg-black">
-      <section className="py-16 bg-zinc-800">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl font-bold mb-4 text-white">ニュース・お知らせ</h1>
-          <p className="text-zinc-300 max-w-2xl mx-auto">
-            MARUに関する最新情報をお届けします。
-          </p>
-        </div>
-      </section>
+      <PageHero title="ニュース・お知らせ" subtitle="MARUに関する最新情報をお届けします。" />
 
       <section className="py-16 bg-zinc-900">
         <div className="container mx-auto px-4">

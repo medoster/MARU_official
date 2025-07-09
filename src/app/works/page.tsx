@@ -3,6 +3,7 @@ import Image from "next/image"
 import { ChevronRight, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import PageHero from "@/components/PageHero"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -24,14 +25,7 @@ export default function WorksPage() {
   return (
     <div className="pt-16 min-h-screen bg-black">
       {/* Page Header */}
-      <section className="py-16 bg-zinc-800">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl font-bold mb-4 text-white">作品一覧</h1>
-          <p className="text-zinc-300 max-w-2xl mx-auto">
-            MARUが制作したマーダーミステリー作品の一覧です。 UZUアプリで遊べる作品を紹介しています。
-          </p>
-        </div>
-      </section>
+      <PageHero title="作品一覧" subtitle="MARUが制作したマーダーミステリー作品の一覧です。 UZUアプリで遊べる作品を紹介しています。" />
 
       {/* Works List */}
       <section className="py-16 bg-zinc-900">

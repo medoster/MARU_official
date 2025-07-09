@@ -9,17 +9,12 @@ export const metadata = {
   ]
 }
 
+import PageHero from "@/components/PageHero"
+
 export default function EnglishHome() {
   return (
     <div className="pt-16 min-h-screen bg-black">
-      <section className="py-16 bg-zinc-800">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl font-bold mb-4 text-white">Welcome</h1>
-          <p className="text-zinc-300 max-w-2xl mx-auto">
-            This is the official website of MARU, a Japanese murder mystery writer.
-          </p>
-        </div>
-      </section>
+      <PageHero title="Welcome" subtitle="This is the official website of MARU, a Japanese murder mystery writer." />
       <section className="py-16 bg-zinc-900">
         <div className="container mx-auto px-4 max-w-3xl text-zinc-300">
           <p className="mb-4">

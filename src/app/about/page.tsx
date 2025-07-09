@@ -1,5 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
+import PageHero from "@/components/PageHero"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -17,12 +18,7 @@ export default function AboutPage() {
   return (
     <div className="pt-16 min-h-screen bg-black">
       {/* Page Header */}
-      <section className="py-16 bg-zinc-800">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl font-bold mb-4 text-white">プロフィール</h1>
-          <p className="text-zinc-300 max-w-2xl mx-auto">マーダーミステリー制作者MARUについて</p>
-        </div>
-      </section>
+      <PageHero title="プロフィール" subtitle="マーダーミステリー制作者MARUについて" />
 
       {/* Profile Section */}
       <section className="py-16 bg-zinc-900">

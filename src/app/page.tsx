@@ -3,7 +3,7 @@ import Image from "next/image"
 import { ChevronRight, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import HeroCarousel from "@/components/HeroCarousel"
+import PageHero from "@/components/PageHero"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -21,51 +21,22 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-black">
       {/* Hero Section */}
-      <section className="relative w-full h-[70vh] overflow-hidden">
-        <HeroCarousel />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/30 z-10" />
-        <div className="relative z-20 container mx-auto px-4 h-full flex flex-col justify-center items-center text-center text-white">
-          <div className="mb-6 w-24 h-24 relative overflow-hidden rounded-full bg-white">
-            <Image
-              src="/images/maru-icon.png"
-              alt="MARU"
-              fill
-              className="object-contain"
-              style={{ objectPosition: "center" }}
-            />
-          </div>
-          <h1 className="text-4xl md:text-6xl font-bold tracking-wider mb-8">MARU</h1>
-          <div className="flex gap-4">
-            <Link
-              href="https://www.uzu-app.com/ja/search-scenarios/author/1808?page=1"
-              target="_blank"
-              className="bg-white/25 hover:bg-white/35 text-white font-bold py-2 px-6 border border-white/60 rounded-md transition-all flex items-center justify-center"
-            >
-              作品を見る
-            </Link>
-            <Link
-              href="https://x.com/mok4shiro"
-              target="_blank"
-              className="bg-white/25 hover:bg-white/35 text-white py-2 px-4 border border-white/60 rounded-md transition-all flex items-center justify-center"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
-                <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
-              </svg>
-            </Link>
-          </div>
+      <PageHero title="MARU">
+        <div className="mb-6 w-24 h-24 relative overflow-hidden rounded-full bg-white">
+          <Image src="/images/maru-icon.png" alt="MARU" fill className="object-contain" style={{ objectPosition: 'center' }} />
         </div>
-      </section>
+        <div className="flex gap-4">
+          <Link href="https://www.uzu-app.com/ja/search-scenarios/author/1808?page=1" target="_blank" className="bg-white/25 hover:bg-white/35 text-white font-bold py-2 px-6 border border-white/60 rounded-md transition-all flex items-center justify-center">
+            作品を見る
+          </Link>
+          <Link href="https://x.com/mok4shiro" target="_blank" className="bg-white/25 hover:bg-white/35 text-white py-2 px-4 border border-white/60 rounded-md transition-all flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
+              <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+            </svg>
+          </Link>
+        </div>
+      </PageHero>
 
       {/* Featured Works */}
       <section className="py-16 bg-zinc-900 text-white">

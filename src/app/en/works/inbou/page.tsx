@@ -4,6 +4,7 @@ import { ArrowLeft, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent } from "@/components/ui/card"
+import PageHero from "@/components/PageHero"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -23,23 +24,18 @@ export default function InbouPage() {
   return (
     <div className="pt-16 min-h-screen bg-black">
       {/* Hero Section */}
-      <section className="relative w-full h-[50vh] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/30 z-10" />
-        <div className="absolute inset-0 bg-white z-0"></div>
-        <Image src="/images/inbou-cover.jpeg" alt="Not a Conspiracy!" fill className="object-cover z-5" priority />
-        <div className="absolute inset-0 flex items-center justify-center z-20">
-          <div className="bg-black/80 backdrop-blur-sm px-8 py-4 rounded-lg max-w-3xl text-center">
-            <h1 className="text-4xl md:text-6xl font-bold tracking-wider mb-4 text-white">Not a Conspiracy!</h1>
-            <div className="flex flex-wrap gap-2 mb-4 justify-center">
-              <span className="px-2 py-1 bg-zinc-700 text-sm rounded text-white">Comedy</span>
-              <span className="px-2 py-1 bg-zinc-700 text-sm rounded text-white">Daily Life</span>
-              <span className="px-2 py-1 bg-zinc-700 text-sm rounded text-white">Tricky</span>
-              <span className="px-2 py-1 bg-zinc-700 text-sm rounded text-white">Party</span>
-            </div>
-            <p className="text-zinc-300">Released: 2025/02/14</p>
-          </div>
+      <PageHero
+        title="Not a Conspiracy!"
+        slides={[{ src: "/images/inbou-cover.jpeg", alt: "Not a Conspiracy!" }]}
+      >
+        <div className="flex flex-wrap gap-2 mb-4 justify-center">
+          <span className="px-2 py-1 bg-zinc-700 text-sm rounded text-white">Comedy</span>
+          <span className="px-2 py-1 bg-zinc-700 text-sm rounded text-white">Daily Life</span>
+          <span className="px-2 py-1 bg-zinc-700 text-sm rounded text-white">Tricky</span>
+          <span className="px-2 py-1 bg-zinc-700 text-sm rounded text-white">Party</span>
         </div>
-        <div className="relative z-20 container mx-auto px-4 h-full">
+        <p className="text-zinc-300">Released: 2025/02/14</p>
+        <div className="relative container mx-auto px-4 h-full">
           <Link
             href="/en/works"
             className="absolute top-8 left-4 flex items-center text-white hover:text-cyan-400 mb-4 w-fit bg-black/60 px-3 py-1 rounded"
@@ -48,7 +44,7 @@ export default function InbouPage() {
             Back to Works
           </Link>
         </div>
-      </section>
+      </PageHero>
 
       {/* Content Section */}
       <section className="py-16 bg-zinc-900">

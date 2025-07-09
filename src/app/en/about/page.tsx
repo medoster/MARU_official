@@ -4,17 +4,12 @@ export const metadata = {
   keywords: ['MARU', 'murder mystery', 'murder mystery app', 'UZU']
 }
 
+import PageHero from "@/components/PageHero"
+
 export default function EnglishAbout() {
   return (
     <div className="pt-16 min-h-screen bg-black">
-      <section className="py-16 bg-zinc-800">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl font-bold mb-4 text-white">Profile</h1>
-          <p className="text-zinc-300 max-w-2xl mx-auto">
-            Learn more about MARU, the creator of murder mystery scenarios.
-          </p>
-        </div>
-      </section>
+      <PageHero title="Profile" subtitle="Learn more about MARU, the creator of murder mystery scenarios." />
       <section className="py-16 bg-zinc-900">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto bg-zinc-800 p-8 rounded-lg shadow-md">
