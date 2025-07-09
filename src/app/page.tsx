@@ -3,6 +3,7 @@ import Image from "next/image"
 import { ChevronRight, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import HeroCarousel from "@/components/HeroCarousel"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -21,7 +22,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen bg-black">
       {/* Hero Section */}
       <section className="relative w-full h-[70vh] overflow-hidden">
-        <div className="absolute inset-0 z-0 bg-hero-slider" />
+        <HeroCarousel />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/30 z-10" />
         <div className="relative z-20 container mx-auto px-4 h-full flex flex-col justify-center items-center text-center text-white">
           <div className="mb-6 w-24 h-24 relative overflow-hidden rounded-full bg-white">
@@ -72,7 +73,7 @@ export default function Home() {
           <h2 className="text-3xl font-bold mb-8 text-center">注目作品</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* SHADOW CODE */}
-            <Card className="bg-zinc-800 border-zinc-700 overflow-hidden shadow-md">
+            <Card className="bg-zinc-800 border-zinc-700 overflow-hidden shadow-md transform transition-transform hover:scale-105">
               <div className="relative aspect-video w-full overflow-hidden">
                 <Image
                   src="/images/shadow-code-cover.png"
@@ -114,7 +115,7 @@ export default function Home() {
             </Card>
 
             {/* JILVAIN */}
-            <Card className="bg-zinc-800 border-zinc-700 overflow-hidden shadow-md">
+            <Card className="bg-zinc-800 border-zinc-700 overflow-hidden shadow-md transform transition-transform hover:scale-105">
               <div className="relative aspect-video w-full overflow-hidden">
                 <Image
                   src="/images/jilvain-cover.png"
@@ -155,7 +156,7 @@ export default function Home() {
               </CardContent>
             </Card>
             {/* 花枯らの檻 */}
-            <Card className="bg-zinc-800 border-zinc-700 overflow-hidden shadow-md">
+            <Card className="bg-zinc-800 border-zinc-700 overflow-hidden shadow-md transform transition-transform hover:scale-105">
               <div className="relative aspect-video w-full overflow-hidden">
                 <Image
                   src="/images/hanagara_KV.jpg"
