@@ -3,7 +3,6 @@
 import { usePathname } from "next/navigation"
 import Link from "next/link"
 import MobileNav from "./mobile-nav"
-import { Search } from "lucide-react"
 
 export default function Header() {
   const pathname = usePathname()
@@ -49,10 +48,6 @@ export default function Header() {
             </Link>
           </nav>
 
-          {/* Mobile Search Icon for alignment */}
-          <button className="md:hidden" aria-label="search" type="button">
-            <Search className="h-6 w-6 text-white" />
-          </button>
         </div>
       </div>
     </header>
