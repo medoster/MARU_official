@@ -415,6 +415,40 @@
   transform: scale(1.05);
 }
 
+/* Work card — premium glow card */
+.work-card {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.5s ease;
+}
+.work-card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 24px 64px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(99, 102, 241, 0.25),
+    0 0 60px rgba(99, 102, 241, 0.08);
+  border-color: rgba(99, 102, 241, 0.3);
+}
+.work-card-image {
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.work-card:hover .work-card-image {
+  transform: scale(1.06);
+}
+/* Subtle inner glow rim on hover */
+.work-card-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  box-shadow: inset 0 0 40px rgba(99, 102, 241, 0.07);
+}
+.work-card:hover .work-card-glow {
+  opacity: 1;
+}
+
 /* Contact form input */
 .contact-input {
   background: rgba(255,255,255,0.05);

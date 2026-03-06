@@ -109,52 +109,65 @@ export default function WorksPage() {
   return (
     <div className="min-h-screen text-white">
       {/* Page Header */}
-      <section className="pt-32 pb-16 px-4">
-        <div className="container mx-auto">
+      <section className="pt-32 pb-20 px-4">
+        <div className="container mx-auto max-w-6xl">
           <ScrollReveal>
-            <p className="text-xs tracking-[0.3em] text-white/40 uppercase mb-3">Works</p>
-            <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-4">作品一覧</h1>
-            <p className="text-zinc-500 text-lg">MARUが手がけたマーダーミステリー作品</p>
+            <p className="text-[10px] tracking-[0.5em] text-white/25 uppercase mb-5">Works</p>
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">作品一覧</h1>
+            <p className="text-white/35 text-sm tracking-wide">MARUが手がけたマーダーミステリー作品</p>
           </ScrollReveal>
         </div>
       </section>
 
       {/* Original Works */}
-      <section className="pb-24 px-4">
-        <div className="container mx-auto">
+      <section className="pb-32 px-4">
+        <div className="container mx-auto max-w-6xl">
           <ScrollReveal>
-            <p className="text-xs tracking-[0.3em] text-white/30 uppercase mb-10">Original Works</p>
+            <p className="text-[10px] tracking-[0.5em] text-white/15 uppercase mb-14">Original Works</p>
           </ScrollReveal>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {originalWorks.map((work, i) => (
-              <ScrollReveal key={work.title} delay={i * 80}>
-                <div className="group card-hover rounded-2xl overflow-hidden bg-zinc-900 border border-white/5">
+              <ScrollReveal key={work.title} delay={i * 90}>
+                <div className="group work-card relative overflow-hidden rounded-2xl border border-white/8 bg-white/[0.02]">
+                  {/* Number & date overlay */}
+                  <div className="absolute top-0 left-0 right-0 z-20 flex items-center justify-between px-4 pt-4 pointer-events-none">
+                    <span className="text-[10px] font-mono tracking-[0.2em] text-white/30 group-hover:text-white/55 transition-colors duration-400">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="text-[10px] font-mono text-white/25 group-hover:text-white/50 transition-colors duration-400">
+                      {work.date}
+                    </span>
+                  </div>
+
                   {/* Image */}
-                  <div className="relative aspect-video overflow-hidden">
+                  <div className="relative aspect-[4/3] overflow-hidden">
                     <Image
                       src={work.src}
                       alt={work.alt}
                       fill
-                      className="object-cover card-image"
+                      className="object-cover work-card-image"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-transparent" />
-                    <div className="absolute bottom-0 left-0 right-0 p-4">
-                      <h3 className="text-xl font-bold text-white">{work.title}</h3>
-                      <p className="text-xs text-white/40 mt-0.5">{work.date}</p>
-                    </div>
+                    {/* Gradient overlays */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-black/45" />
                   </div>
 
                   {/* Content */}
                   <div className="p-5">
-                    <p className="text-zinc-400 text-sm leading-relaxed mb-4">{work.description}</p>
+                    <h3 className="text-base font-bold text-white/90 group-hover:text-white transition-colors duration-300 mb-2 tracking-tight">
+                      {work.title}
+                    </h3>
+                    <p className="text-[12px] text-white/38 leading-relaxed mb-4 line-clamp-3">
+                      {work.description}
+                    </p>
 
                     {/* Tags */}
-                    <div className="flex flex-wrap gap-2 mb-5">
+                    <div className="flex flex-wrap gap-1.5 mb-5">
                       {work.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="px-3 py-0.5 bg-white/8 border border-white/10 text-xs rounded-full text-zinc-300"
+                          className="text-[10px] px-2.5 py-0.5 rounded-full border border-white/10 text-white/35 tracking-wide"
                         >
                           {tag}
                         </span>
@@ -162,24 +175,27 @@ export default function WorksPage() {
                     </div>
 
                     {/* Actions */}
-                    <div className="flex justify-between items-center">
+                    <div className="flex items-center gap-3">
                       <Link
                         href={work.uzuHref}
                         target="_blank"
-                        className="flex items-center gap-1.5 text-sm bg-white text-black font-semibold py-2 px-5 rounded-full transition-all duration-300 hover:bg-white/90 hover:scale-105 active:scale-95"
+                        className="flex items-center gap-1.5 text-[11px] font-bold bg-white text-black py-2 px-4 rounded-full hover:bg-white/90 transition-all duration-200 hover:scale-105 active:scale-95 tracking-wide"
                       >
                         UZUで遊ぶ
-                        <ExternalLink className="h-3.5 w-3.5" />
+                        <ExternalLink className="h-2.5 w-2.5" />
                       </Link>
                       <Link
                         href={work.detailHref}
-                        className="flex items-center gap-1 text-sm text-zinc-400 hover:text-white transition-colors duration-300"
+                        className="flex items-center gap-0.5 text-[11px] text-white/35 hover:text-white/80 transition-colors duration-200 tracking-wide"
                       >
-                        詳細を見る
-                        <ChevronRight className="h-4 w-4" />
+                        詳細
+                        <ChevronRight className="h-3.5 w-3.5" />
                       </Link>
                     </div>
                   </div>
+
+                  {/* Glow border on hover */}
+                  <div className="work-card-glow" />
                 </div>
               </ScrollReveal>
             ))}
@@ -188,35 +204,38 @@ export default function WorksPage() {
       </section>
 
       {/* Divider */}
-      <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mx-8" />
+      <div className="h-px bg-gradient-to-r from-transparent via-white/8 to-transparent mx-8" />
 
       {/* Ported Works */}
-      <section className="py-24 px-4">
-        <div className="container mx-auto">
+      <section className="py-28 px-4">
+        <div className="container mx-auto max-w-6xl">
           <ScrollReveal>
-            <p className="text-xs tracking-[0.3em] text-white/30 uppercase mb-3">UZU Implementation / Port</p>
-            <h2 className="text-3xl font-bold tracking-tight mb-10">UZU実装・移植実績</h2>
+            <p className="text-[10px] tracking-[0.5em] text-white/15 uppercase mb-4">UZU Implementation / Port</p>
+            <h2 className="text-3xl font-bold tracking-tight mb-16">UZU実装・移植実績</h2>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="border-t border-white/5">
             {portedWorks.map((work, i) => (
               <ScrollReveal key={work.title} delay={i * 60}>
-                <div className="group flex items-center justify-between p-5 rounded-xl bg-zinc-900 border border-white/5 hover:border-white/10 transition-colors duration-300">
-                  <div>
-                    <h3 className="font-semibold text-white/90 group-hover:text-white transition-colors duration-200 mb-1">
+                <Link
+                  href={work.uzuHref}
+                  target="_blank"
+                  className="group flex items-center gap-6 py-6 border-b border-white/5 hover:border-white/10 transition-all duration-300"
+                >
+                  <span className="text-[10px] font-mono text-white/18 w-6 shrink-0 group-hover:text-white/40 transition-colors duration-300">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-sm font-semibold text-white/65 group-hover:text-white transition-colors duration-200 tracking-wide mb-0.5">
                       {work.title}
                     </h3>
-                    <p className="text-xs text-zinc-500">{work.description}</p>
+                    <p className="text-[11px] text-white/28 tracking-wide">{work.description}</p>
                   </div>
-                  <Link
-                    href={work.uzuHref}
-                    target="_blank"
-                    className="shrink-0 ml-4 flex items-center gap-1 text-xs text-zinc-400 hover:text-white border border-white/10 hover:border-white/30 px-3 py-1.5 rounded-full transition-all duration-200"
-                  >
-                    UZU
-                    <ExternalLink className="h-3 w-3" />
-                  </Link>
-                </div>
+                  <div className="flex items-center gap-1.5 text-[10px] tracking-[0.15em] text-white/22 group-hover:text-white/55 transition-colors duration-300 shrink-0">
+                    <span>UZU</span>
+                    <ExternalLink className="h-2.5 w-2.5" />
+                  </div>
+                </Link>
               </ScrollReveal>
             ))}
           </div>
