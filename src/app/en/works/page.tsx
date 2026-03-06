@@ -21,7 +21,7 @@ import { Card, CardContent } from '@/components/ui/card'
 
 export default function EnglishWorks() {
   return (
-    <div className="pt-16 min-h-screen bg-black">
+    <div className="pt-16 min-h-screen">
       <section className="py-16 bg-zinc-800">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl font-bold mb-4 text-white">Works</h1>

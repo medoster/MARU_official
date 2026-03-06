@@ -1,13 +1,6 @@
 "use client"
 
 import { useState } from 'react'
-import type { Metadata } from 'next'
-
-export const metadata: Metadata = {
-  title: 'Contact - MARU',
-  description: 'Get in touch with MARU, the murder mystery (madamis) writer, using the contact form.',
-  keywords: ['MARU', 'murder mystery', 'murder mystery app', 'UZU']
-}
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
@@ -17,7 +10,15 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 
 const works = [
   { id: 'shadowcode', title: 'SHADOW CODE' },
-  { id: 'sokusekiho', title: 'Instant HO' }
+  { id: 'sokusekiho', title: 'Instant HO' },
+  { id: 'aonoshomei', title: 'Sukitooru Ao no Shomei' },
+  { id: 'nuruga',     title: 'NURUGA -Side Story-' },
+  { id: 'inbou',      title: 'I\'m Not a Conspiracy Theorist!' },
+  { id: 'jilvain',    title: 'JILVAIN' },
+  { id: 'recall',     title: 'Re:CALL' },
+  { id: 'konkon',     title: 'Konkon' },
+  { id: 'hanagara',   title: 'Hanagara no Ori' },
+  { id: 'chosoyo',    title: 'Cho to Soyokaze' },
 ]
 
 export default function EnglishContact() {
@@ -69,7 +70,7 @@ export default function EnglishContact() {
   }
 
   return (
-    <div className="pt-16 min-h-screen bg-black">
+    <div className="pt-16 min-h-screen">
       <section className="py-16 bg-zinc-800">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl font-bold mb-4 text-white">Contact</h1>

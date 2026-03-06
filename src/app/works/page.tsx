@@ -1,13 +1,12 @@
 import Link from "next/link"
 import Image from "next/image"
 import { ChevronRight, ExternalLink } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
 import type { Metadata } from "next"
+import ScrollReveal from "@/components/scroll-reveal"
 
 export const metadata: Metadata = {
   title: "作品一覧 - MARU",
-  description: "MARUが制作したマーダーミステリー・マダミス作品の一覧です。",
+  description: "MARUが制作したマーダーミステリー作品の一覧です。",
   keywords: [
     "SHADOW CODE",
     "陰謀論者じゃないもん！",
@@ -20,327 +19,206 @@ export const metadata: Metadata = {
   ],
 }
 
+const originalWorks = [
+  {
+    src: "/images/shadow-code-cover.png",
+    alt: "SHADOW CODE",
+    title: "SHADOW CODE",
+    description:
+      "西暦2324年、未来都市エクリプスシティ。全ての市民が頭のICチップを通じてAI「NOVA」と交信する進歩の裏に、深い闇が隠されていた。",
+    tags: ["SF", "重厚", "駆け引きが楽しい", "なりきって楽しい", "解説が充実"],
+    date: "2024/08/17",
+    uzuHref: "https://www.uzu-app.com/ja/scenario/5808",
+    detailHref: "/works/shadow-code",
+  },
+  {
+    src: "/images/jilvain-cover.png",
+    alt: "JILVAIN",
+    title: "JILVAIN",
+    description:
+      "遥か昔から忌み嫌われ、また畏敬される「オニロ島」。1度足を踏み入れた者は、2度と帰ってくることのできない禁断の島。",
+    tags: ["ファンタジー", "トリッキー", "駆け引きが楽しい", "重厚", "解説が充実"],
+    date: "2025/02/18",
+    uzuHref: "https://www.uzu-app.com/ja/scenario/7298",
+    detailHref: "/works/jilvain",
+  },
+  {
+    src: "/images/hanagara_KV.jpg",
+    alt: "花枯らの檻",
+    title: "花枯らの檻",
+    description:
+      "「細菌をばら撒いてしまった！」天才研究者の叫びから始まる密室劇。核シェルターに閉じ込められた六人の前に、所長の死体が発見される。",
+    tags: ["SF", "コメディ", "駆け引きが楽しい", "推理を楽しむ", "トリッキー", "BGM･SE付き"],
+    date: "2025/07/18",
+    uzuHref: "https://www.uzu-app.com/ja/scenario/10538",
+    detailHref: "/works/hanagara",
+  },
+  {
+    src: "/images/inbou-cover.jpeg",
+    alt: "陰謀論者じゃないもん！",
+    title: "陰謀論者じゃないもん！",
+    description:
+      "とあるセミナーに集まった5人。休憩後、講師の禰津御郷の死体がパーテーションの裏から発見される。",
+    tags: ["コメディ", "日常", "トリッキー", "みんなでワイワイ"],
+    date: "2025/02/14",
+    uzuHref: "https://www.uzu-app.com/ja/scenario/7297",
+    detailHref: "/works/inbou",
+  },
+  {
+    src: "/images/sokusei-ho-cover.jpeg",
+    alt: "即席HO",
+    title: "即席HO",
+    description:
+      "目を覚ますとそこは密室。謎の主催者によって、化かし合いのデスゲームが始まる。配られたHO通りにRPをしてHOを当ててもらうゲーム。",
+    tags: ["デスゲーム", "コメディ", "トリッキー", "みんなでワイワイ"],
+    date: "2024/09/14",
+    uzuHref: "https://www.uzu-app.com/ja/scenario/6123",
+    detailHref: "/works/sokusei-ho",
+  },
+]
+
+const portedWorks = [
+  {
+    title: "蝶とそよ風",
+    description: "UZU実装を担当しました。",
+    uzuHref: "https://www.uzu-app.com/ja/scenario/15174",
+  },
+  {
+    title: "魂吼-コンコン-",
+    description: "UZUアプリでの実装を担当しました。",
+    uzuHref: "https://www.uzu-app.com/ja/scenario/8953",
+  },
+  {
+    title: "Re:CALL（リコール）",
+    description: "UZUアプリでの実装を担当しました。",
+    uzuHref: "https://www.uzu-app.com/ja/scenario/8471",
+  },
+  {
+    title: "NURUGA-2週目の蛇足-",
+    description: "Boothからの移植を担当しました。",
+    uzuHref: "https://www.uzu-app.com/ja/scenario/7135",
+  },
+  {
+    title: "透きとおる青の証明",
+    description: "Boothからの移植を担当しました。",
+    uzuHref: "https://www.uzu-app.com/ja/scenario/7490",
+  },
+]
+
 export default function WorksPage() {
   return (
-    <div className="pt-16 min-h-screen bg-black">
+    <div className="min-h-screen text-white">
       {/* Page Header */}
-      <section className="py-16 bg-zinc-800">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl font-bold mb-4 text-white">作品一覧</h1>
-          <p className="text-zinc-300 max-w-2xl mx-auto">
-            MARUが制作したマーダーミステリー作品の一覧です。 UZUアプリで遊べる作品を紹介しています。
-          </p>
+      <section className="pt-32 pb-16 px-4">
+        <div className="container mx-auto">
+          <ScrollReveal>
+            <p className="text-xs tracking-[0.3em] text-white/40 uppercase mb-3">Works</p>
+            <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-4">作品一覧</h1>
+            <p className="text-zinc-500 text-lg">MARUが手がけたマーダーミステリー作品</p>
+          </ScrollReveal>
         </div>
       </section>
 
-      {/* Works List */}
-      <section className="py-16 bg-zinc-900">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* SHADOW CODE */}
-            <Card className="bg-zinc-800 border-zinc-700 overflow-hidden shadow-md">
-              <div className="relative aspect-video w-full overflow-hidden">
-                <Image
-                  src="/images/shadow-code-cover.png"
-                  alt="SHADOW CODE"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-                <div className="absolute inset-0 flex items-end">
-                  <div className="bg-black/80 backdrop-blur-sm w-full p-3">
-                    <h3 className="text-2xl font-bold text-white">SHADOW CODE</h3>
+      {/* Original Works */}
+      <section className="pb-24 px-4">
+        <div className="container mx-auto">
+          <ScrollReveal>
+            <p className="text-xs tracking-[0.3em] text-white/30 uppercase mb-10">Original Works</p>
+          </ScrollReveal>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {originalWorks.map((work, i) => (
+              <ScrollReveal key={work.title} delay={i * 80}>
+                <div className="group card-hover rounded-2xl overflow-hidden bg-zinc-900 border border-white/5">
+                  {/* Image */}
+                  <div className="relative aspect-video overflow-hidden">
+                    <Image
+                      src={work.src}
+                      alt={work.alt}
+                      fill
+                      className="object-cover card-image"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 p-4">
+                      <h3 className="text-xl font-bold text-white">{work.title}</h3>
+                      <p className="text-xs text-white/40 mt-0.5">{work.date}</p>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <CardContent className="p-6">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="px-2 py-1 bg-zinc-700 text-xs rounded text-white">SF</span>
-                  <span className="px-2 py-1 bg-zinc-700 text-xs rounded text-white">駆け引きが楽しい</span>
-                  <span className="px-2 py-1 bg-zinc-700 text-xs rounded text-white">なりきって楽しい</span>
-                  <span className="px-2 py-1 bg-zinc-700 text-xs rounded text-white">重厚</span>
-                  <span className="px-2 py-1 bg-zinc-700 text-xs rounded text-white">解説が充実</span>
-                </div>
-                <p className="text-zinc-300 mb-4">
-                  西暦2324年、未来都市エクリプスシティでは、全ての市民が頭に装着したICチップを通じてシティAI「NOVA」と交信している。
-                  この進歩の裏には暗く深い闇が隠されている。
-                </p>
-                <p className="text-gray-300 text-sm mb-4">公開日: 2024/08/17</p>
-                <div className="flex justify-between items-center">
-                  <Button asChild className="bg-zinc-700 hover:bg-zinc-600 text-white border border-zinc-600">
-                    <Link href="https://www.uzu-app.com/ja/scenario/5808" target="_blank" className="flex items-center">
-                      UZUで遊ぶ
-                      <ExternalLink className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                  <Button asChild variant="ghost" className="text-white hover:text-gray-300 p-0">
-                    <Link href="/works/shadow-code" className="flex items-center">
-                      詳細を見る
-                      <ChevronRight className="h-4 w-4 ml-1" />
-                    </Link>
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
 
-            {/* 陰謀論者じゃないもん！ */}
-            <Card className="bg-zinc-800 border-zinc-700 overflow-hidden shadow-md">
-              <div className="relative aspect-video w-full overflow-hidden">
-                <div className="absolute inset-0 bg-white z-0"></div>
-                <Image
-                  src="/images/inbou-cover.jpeg"
-                  alt="陰謀論者じゃないもん！"
-                  fill
-                  className="object-cover z-10"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-                <div className="absolute inset-0 flex items-end z-20">
-                  <div className="bg-black/80 backdrop-blur-sm w-full p-3">
-                    <h3 className="text-2xl font-bold text-white">陰謀論者じゃないもん！</h3>
-                  </div>
-                </div>
-              </div>
-              <CardContent className="p-6">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="px-2 py-1 bg-zinc-700 text-xs rounded text-white">コメディ</span>
-                  <span className="px-2 py-1 bg-zinc-700 text-xs rounded text-white">日常</span>
-                  <span className="px-2 py-1 bg-zinc-700 text-xs rounded text-white">トリッキー</span>
-                  <span className="px-2 py-1 bg-zinc-700 text-xs rounded text-white">みんなでワイワイ</span>
-                </div>
-                <p className="text-zinc-300 mb-4">
-                  とあるセミナーを受講するために集まった5人。休憩後、たくさんお金を儲けられる方法を教えてもらうはずだったのに、いつまでたっても帰って来ない。
-                  パーテーションの裏を見ると講義を行っていた禰津御郷（ねづみこう）の死体が見つかった。
-                </p>
-                <p className="text-gray-300 text-sm mb-4">公開日: 2025/02/14</p>
-                <div className="flex justify-between items-center">
-                  <Button asChild className="bg-zinc-700 hover:bg-zinc-600 text-white border border-zinc-600">
-                    <Link href="https://www.uzu-app.com/ja/scenario/7297" target="_blank" className="flex items-center">
-                      UZUで遊ぶ
-                      <ExternalLink className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                  <Button asChild variant="ghost" className="text-white hover:text-gray-300 p-0">
-                    <Link href="/works/inbou" className="flex items-center">
-                      詳細を見る
-                      <ChevronRight className="h-4 w-4 ml-1" />
-                    </Link>
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
+                  {/* Content */}
+                  <div className="p-5">
+                    <p className="text-zinc-400 text-sm leading-relaxed mb-4">{work.description}</p>
 
-            {/* 即席HO */}
-            <Card className="bg-zinc-800 border-zinc-700 overflow-hidden shadow-md">
-              <div className="relative aspect-video w-full overflow-hidden">
-                <Image
-                  src="/images/sokusei-ho-cover.jpeg"
-                  alt="即席HO"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-                <div className="absolute inset-0 flex items-end">
-                  <div className="bg-black/80 backdrop-blur-sm w-full p-3">
-                    <h3 className="text-2xl font-bold text-white">即席HO</h3>
-                  </div>
-                </div>
-              </div>
-              <CardContent className="p-6">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="px-2 py-1 bg-zinc-700 text-xs rounded text-white">デスゲーム</span>
-                  <span className="px-2 py-1 bg-zinc-700 text-xs rounded text-white">コメディ</span>
-                  <span className="px-2 py-1 bg-zinc-700 text-xs rounded text-white">トリッキー</span>
-                  <span className="px-2 py-1 bg-zinc-700 text-xs rounded text-white">みんなでワイワイ</span>
-                </div>
-                <p className="text-zinc-300 mb-4">
-                  目を覚ますとそこは密室。主催者を名乗る謎の人物によって、化かし合いのデスゲームが始まる。
-                  配られたHO通りにRPをしてHOを当ててもらうゲームです。羞恥心を捨てられる人向け。
-                </p>
-                <p className="text-gray-300 text-sm mb-4">公開日: 2024/09/14</p>
-                <div className="flex justify-between items-center">
-                  <Button asChild className="bg-zinc-700 hover:bg-zinc-600 text-white border border-zinc-600">
-                    <Link href="https://www.uzu-app.com/ja/scenario/6123" target="_blank" className="flex items-center">
-                      UZUで遊ぶ
-                      <ExternalLink className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                  <Button asChild variant="ghost" className="text-white hover:text-gray-300 p-0">
-                    <Link href="/works/sokusei-ho" className="flex items-center">
-                      詳細を見る
-                      <ChevronRight className="h-4 w-4 ml-1" />
-                    </Link>
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
+                    {/* Tags */}
+                    <div className="flex flex-wrap gap-2 mb-5">
+                      {work.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-3 py-0.5 bg-white/8 border border-white/10 text-xs rounded-full text-zinc-300"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
 
-            {/* JILVAIN */}
-            <Card className="bg-zinc-800 border-zinc-700 overflow-hidden shadow-md">
-              <div className="relative aspect-video w-full overflow-hidden">
-                <Image
-                  src="/images/jilvain-cover.png"
-                  alt="JILVAIN"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-                <div className="absolute inset-0 flex items-end">
-                  <div className="bg-black/80 backdrop-blur-sm w-full p-3">
-                    <h3 className="text-2xl font-bold text-white">JILVAIN</h3>
+                    {/* Actions */}
+                    <div className="flex justify-between items-center">
+                      <Link
+                        href={work.uzuHref}
+                        target="_blank"
+                        className="flex items-center gap-1.5 text-sm bg-white text-black font-semibold py-2 px-5 rounded-full transition-all duration-300 hover:bg-white/90 hover:scale-105 active:scale-95"
+                      >
+                        UZUで遊ぶ
+                        <ExternalLink className="h-3.5 w-3.5" />
+                      </Link>
+                      <Link
+                        href={work.detailHref}
+                        className="flex items-center gap-1 text-sm text-zinc-400 hover:text-white transition-colors duration-300"
+                      >
+                        詳細を見る
+                        <ChevronRight className="h-4 w-4" />
+                      </Link>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <CardContent className="p-6">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="px-2 py-1 bg-zinc-700 text-xs rounded text-white">ファンタジー</span>
-                  <span className="px-2 py-1 bg-zinc-700 text-xs rounded text-white">駆け引きが楽しい</span>
-                  <span className="px-2 py-1 bg-zinc-700 text-xs rounded text-white">トリッキー</span>
-                  <span className="px-2 py-1 bg-zinc-700 text-xs rounded text-white">重厚</span>
-                  <span className="px-2 py-1 bg-zinc-700 text-xs rounded text-white">解説が充実</span>
-                </div>
-                <p className="text-zinc-300 mb-4">
-                  遥か昔から、忌み嫌われ、また畏敬される場所――それが「オニロ島」。
-                  伝えられるところによれば、1度足を踏み入れた者は、2度と帰ってくることの出来ない、禁断の島である。
-                </p>
-                <p className="text-gray-300 text-sm mb-4">公開日: 2025/02/18</p>
-                <div className="flex justify-between items-center">
-                  <Button asChild className="bg-zinc-700 hover:bg-zinc-600 text-white border border-zinc-600">
-                    <Link href="https://www.uzu-app.com/ja/scenario/7298" target="_blank" className="flex items-center">
-                      UZUで遊ぶ
-                      <ExternalLink className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                  <Button asChild variant="ghost" className="text-white hover:text-gray-300 p-0">
-                    <Link href="/works/jilvain" className="flex items-center">
-                      詳細を見る
-                      <ChevronRight className="h-4 w-4 ml-1" />
-                    </Link>
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* 花枯らの檻 */}
-            <Card className="bg-zinc-800 border-zinc-700 overflow-hidden shadow-md">
-              <div className="relative aspect-video w-full overflow-hidden">
-                <Image
-                  src="/images/hanagara_KV.jpg"
-                  alt="花枯らの檻"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-                <div className="absolute inset-0 flex items-end">
-                  <div className="bg-black/80 backdrop-blur-sm w-full p-3">
-                    <h3 className="text-2xl font-bold text-white">花枯らの檻</h3>
-                  </div>
-                </div>
-              </div>
-              <CardContent className="p-6">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="px-2 py-1 bg-zinc-700 text-xs rounded text-white">SF</span>
-                  <span className="px-2 py-1 bg-zinc-700 text-xs rounded text-white">コメディ</span>
-                  <span className="px-2 py-1 bg-zinc-700 text-xs rounded text-white">駆け引きが楽しい</span>
-                  <span className="px-2 py-1 bg-zinc-700 text-xs rounded text-white">推理を楽しむ</span>
-                  <span className="px-2 py-1 bg-zinc-700 text-xs rounded text-white">トリッキー</span>
-                  <span className="px-2 py-1 bg-zinc-700 text-xs rounded text-white">BGM･SE付き</span>
-                </div>
-                <p className="text-zinc-300 mb-4">
-                  「細菌をばら撒いてしまった！」と叫んだ天才研究者オルビス所長。隔離されたシェルターで彼の遺体が発見される。
-                </p>
-                <p className="text-gray-300 text-sm mb-4">公開日: 2025/07/18</p>
-                <div className="flex justify-between items-center">
-                  <Button asChild className="bg-zinc-700 hover:bg-zinc-600 text-white border border-zinc-600">
-                    <Link href="https://www.uzu-app.com/ja/scenario/10538" target="_blank" className="flex items-center">
-                      UZUで遊ぶ
-                      <ExternalLink className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                  <Button asChild variant="ghost" className="text-white hover:text-gray-300 p-0">
-                    <Link href="/works/hanagara" className="flex items-center">
-                      詳細を見る
-                      <ChevronRight className="h-4 w-4 ml-1" />
-                    </Link>
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
+              </ScrollReveal>
+            ))}
           </div>
+        </div>
+      </section>
 
-          {/* UZU実装・移植実績 */}
-          <div className="mt-16">
-            <div className="mb-6">
-              <h3 className="text-xl font-semibold mb-2 text-white">UZU実装・移植実績</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <Card className="bg-zinc-800 border-zinc-700 overflow-hidden shadow-md">
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-bold mb-2 text-white">魂吼-コンコン-</h3>
-                    <p className="text-zinc-300 mb-4">UZUアプリでの実装を担当しました。</p>
-                    <Button asChild className="w-full bg-zinc-700 hover:bg-zinc-600 text-white border border-zinc-600">
-                      <Link
-                        href="https://www.uzu-app.com/ja/scenario/8953"
-                        target="_blank"
-                        className="flex items-center justify-center"
-                      >
-                        UZUで遊ぶ
-                        <ExternalLink className="ml-2 h-4 w-4" />
-                      </Link>
-                    </Button>
-                  </CardContent>
-                </Card>
+      {/* Divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mx-8" />
 
-                <Card className="bg-zinc-800 border-zinc-700 overflow-hidden shadow-md">
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-bold mb-2 text-white">透きとおる青の証明</h3>
-                    <p className="text-zinc-300 mb-4">Boothからの移植を担当しました。</p>
-                    <Button asChild className="w-full bg-zinc-700 hover:bg-zinc-600 text-white border border-zinc-600">
-                      <Link
-                        href="https://www.uzu-app.com/ja/scenario/7490"
-                        target="_blank"
-                        className="flex items-center justify-center"
-                      >
-                        UZUで遊ぶ
-                        <ExternalLink className="ml-2 h-4 w-4" />
-                      </Link>
-                    </Button>
-                  </CardContent>
-                </Card>
+      {/* Ported Works */}
+      <section className="py-24 px-4">
+        <div className="container mx-auto">
+          <ScrollReveal>
+            <p className="text-xs tracking-[0.3em] text-white/30 uppercase mb-3">UZU Implementation / Port</p>
+            <h2 className="text-3xl font-bold tracking-tight mb-10">UZU実装・移植実績</h2>
+          </ScrollReveal>
 
-                <Card className="bg-zinc-800 border-zinc-700 overflow-hidden shadow-md">
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-bold mb-2 text-white">NURUGA-2週目の蛇足-</h3>
-                    <p className="text-zinc-300 mb-4">Boothからの移植を担当しました。</p>
-                    <Button asChild className="w-full bg-zinc-700 hover:bg-zinc-600 text-white border border-zinc-600">
-                      <Link
-                        href="https://www.uzu-app.com/ja/scenario/7135"
-                        target="_blank"
-                        className="flex items-center justify-center"
-                      >
-                        UZUで遊ぶ
-                        <ExternalLink className="ml-2 h-4 w-4" />
-                      </Link>
-                    </Button>
-                  </CardContent>
-                </Card>
-
-                <Card className="bg-zinc-800 border-zinc-700 overflow-hidden shadow-md">
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-bold mb-2 text-white">Re:CALL（リコール）</h3>
-                    <p className="text-zinc-300 mb-4">UZUアプリでの実装を担当しました。</p>
-                    <Button asChild className="w-full bg-zinc-700 hover:bg-zinc-600 text-white border border-zinc-600">
-                      <Link
-                        href="https://www.uzu-app.com/ja/scenario/8471"
-                        target="_blank"
-                        className="flex items-center justify-center"
-                      >
-                        UZUで遊ぶ
-                        <ExternalLink className="ml-2 h-4 w-4" />
-                      </Link>
-                    </Button>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {portedWorks.map((work, i) => (
+              <ScrollReveal key={work.title} delay={i * 60}>
+                <div className="group flex items-center justify-between p-5 rounded-xl bg-zinc-900 border border-white/5 hover:border-white/10 transition-colors duration-300">
+                  <div>
+                    <h3 className="font-semibold text-white/90 group-hover:text-white transition-colors duration-200 mb-1">
+                      {work.title}
+                    </h3>
+                    <p className="text-xs text-zinc-500">{work.description}</p>
+                  </div>
+                  <Link
+                    href={work.uzuHref}
+                    target="_blank"
+                    className="shrink-0 ml-4 flex items-center gap-1 text-xs text-zinc-400 hover:text-white border border-white/10 hover:border-white/30 px-3 py-1.5 rounded-full transition-all duration-200"
+                  >
+                    UZU
+                    <ExternalLink className="h-3 w-3" />
+                  </Link>
+                </div>
+              </ScrollReveal>
+            ))}
           </div>
         </div>
       </section>

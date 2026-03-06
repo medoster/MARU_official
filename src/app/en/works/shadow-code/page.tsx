@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 export default function ShadowCodePage() {
   return (
-    <div className="pt-16 min-h-screen bg-black">
+    <div className="pt-16 min-h-screen">
       {/* Hero Section */}
       <section className="relative w-full h-[50vh] overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/30 z-10" />
@@ -41,7 +41,7 @@ export default function ShadowCodePage() {
         <div className="relative z-20 container mx-auto px-4 h-full">
           <Link
             href="/en/works"
-            className="absolute top-8 left-4 flex items-center text-white hover:text-cyan-400 mb-4 w-fit bg-black/60 px-3 py-1 rounded"
+            className="absolute top-8 left-4 flex items-center text-white hover:text-cyan-400 mb-4 w-fit/60 px-3 py-1 rounded"
           >
             <ArrowLeft className="h-4 w-4 mr-2" />
             Back to Works

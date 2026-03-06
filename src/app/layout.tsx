@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import Header from "../components/header";
@@ -9,6 +9,10 @@ import React from "react";
 import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'),
@@ -17,9 +21,9 @@ export const metadata: Metadata = {
     template: "MARU",
   },
   icons: {
-    icon: "/images/maru-icon.png", // または .png でも可
+    icon: "/images/placeholder-logo.png",
   },
-  description: "マーダーミステリー・マダミス制作サークルMARUの公式サイトです。",
+  description: "MARUの公式サイトです。",
   keywords: [
     "マーダーミステリー",
     "マダミス",
@@ -41,7 +45,7 @@ export const metadata: Metadata = {
     type: "website",
     url: process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000',
     title: "MARU",
-    description: "マーダーミステリー・マダミス制作サークルMARUの公式サイトです。",
+    description: "MARUの公式サイトです。",
     siteName: "MARU",
     images: [
       {
@@ -52,7 +56,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary",
     title: "MARU",
-    description: "マーダーミステリー・マダミス制作サークルMARUの公式サイトです。",
+    description: "MARUの公式サイトです。",
     images: [
       "/images/maru-icon.png",
     ],
@@ -90,7 +94,32 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={inter.className}>
+      <body className={`${inter.className} ${spaceGrotesk.variable}`}>
+        {/* SF Background — fixed, behind all content */}
+        <div aria-hidden="true" className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+          <div className="sf-orb sf-orb-1" />
+          <div className="sf-orb sf-orb-2" />
+          <div className="sf-orb sf-orb-3" />
+          <div className="sf-stars sf-stars-a" />
+          <div className="sf-stars sf-stars-b" />
+          <div className="sf-stars sf-stars-c" />
+          <div className="sf-stars sf-stars-d" />
+          <div className="sf-stars sf-stars-e" />
+          <div className="sf-stars sf-stars-f" />
+          <div className="sf-stars sf-stars-g" />
+          <div className="sf-stars sf-stars-h" />
+          <div className="sf-ring sf-ring-1" />
+          <div className="sf-ring sf-ring-2" />
+          <div className="sf-ring sf-ring-3" />
+          <div className="sf-ring sf-ring-4" />
+          <div className="sf-ring sf-ring-5" />
+          <div className="sf-ring sf-ring-6" />
+          <div className="sf-ring sf-ring-7" />
+          <div className="sf-ring sf-ring-8" />
+          <div className="sf-edge-left" />
+          <div className="sf-edge-right" />
+          <div className="sf-horizon" />
+        </div>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -98,7 +127,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <LanguageSetter />
-          <div className="flex flex-col min-h-screen">
+          <div className="relative z-10 flex flex-col min-h-screen">
             <Header />
             <main className="pt-16 flex-grow">
               {children}

@@ -8,108 +8,70 @@ const Footer = () => {
   const pathname = usePathname()
   const isEnglish = pathname.startsWith('/en')
   const base = isEnglish ? '/en' : ''
+  const navLinks = [
+    { href: base === '' ? '/' : base, label: isEnglish ? 'Home' : 'ホーム' },
+    { href: `${base}/about`, label: isEnglish ? 'Profile' : 'プロフィール' },
+    { href: `${base}/works`, label: isEnglish ? 'Works' : '作品' },
+    { href: `${base}/awards`, label: isEnglish ? 'Awards' : '受賞歴' },
+    { href: `${base}/news`, label: isEnglish ? 'News' : 'ニュース' },
+    { href: `${base}/contact`, label: isEnglish ? 'Contact' : 'お問い合わせ' },
+  ]
+
   return (
-    <footer className="bg-gradient-to-b from-zinc-900 via-black to-zinc-900 text-gray-200 mt-auto">
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {/* Links Section */}
-          <div>
-          <h3 className="text-2xl font-semibold mb-4 text-white">{isEnglish ? 'Links' : 'リンク'}</h3>
-            <ul className="space-y-2 text-sm md:text-base">
-              <li>
-                <Link href={base === '' ? '/' : base} className="text-gray-300 hover:text-white transition-colors">
-                  {isEnglish ? 'Home' : 'ホーム'}
-                </Link>
-              </li>
-              <li>
-                <Link href={`${base}/about`} className="text-gray-300 hover:text-white transition-colors">
-                  {isEnglish ? 'Profile' : 'プロフィール'}
-                </Link>
-              </li>
-              <li>
-                <Link href={`${base}/works`} className="text-gray-300 hover:text-white transition-colors">
-                  {isEnglish ? 'Works' : '作品'}
-                </Link>
-              </li>
-              <li>
-                <Link href={`${base}/news`} className="text-gray-300 hover:text-white transition-colors">
-                  {isEnglish ? 'News' : 'ニュース'}
-                </Link>
-              </li>
-              <li>
-                <Link href={`${base}/contact`} className="text-gray-300 hover:text-white transition-colors">
-                  {isEnglish ? 'Contact' : 'お問い合わせ'}
-                </Link>
-              </li>
-              <li>
-                <Link href={isEnglish ? '/' : '/en'} className="text-gray-300 hover:text-white transition-colors">
-                  {isEnglish ? 'JP' : 'EN'}
-                </Link>
-              </li>
-            </ul>
-          </div>
+    <footer className="relative border-t border-white/5 bg-black/40 backdrop-blur-md text-white">
+      <div className="container mx-auto px-8 py-20">
 
-          {/* Social Links */}
-          <div>
-          <h3 className="text-2xl font-semibold mb-4 text-white">{isEnglish ? 'Social' : 'ソーシャル'}</h3>
-            <ul className="space-y-2 text-sm md:text-base">
-              <li>
-                <Link
-                  href="https://x.com/mok4shiro"
-                  target="_blank"
-                  className="text-gray-300 hover:text-white transition-colors flex items-center gap-2"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
-                    <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
-                  </svg>
-                  X (Twitter)
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="https://www.uzu-app.com/ja/search-scenarios/author/1808?page=1"
-                  target="_blank"
-                  className="text-gray-300 hover:text-white transition-colors flex items-center gap-2"
-                >
-                  <div className="w-4 h-4 relative">
-                    <Image
-                      src="/images/uzu-logo.svg"
-                      alt="UZU"
-                      width={16}
-                      height={16}
-                      className="object-contain"
-                    />
-                  </div>
-                  UZU
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* About Section */}
-          <div>
-            <h3 className="text-2xl font-semibold mb-4 text-white">MARU</h3>
-            <p className="text-gray-400">
-              {isEnglish
-                ? 'Scenario writer publishing works on UZU. Handles various genres including sci-fi and mystery.'
-                : 'シナリオライター。UZUにて作品を公開中。SF、ミステリーなど、様々なジャンルの作品を手がけています。'}
-            </p>
-          </div>
+        {/* Logo */}
+        <div className="flex justify-center mb-10">
+          <Link href={base === '' ? '/' : base} className="transition-opacity hover:opacity-60">
+            <Image src="/images/placeholder-logo.png" alt="MARU" width={100} height={100} className="object-contain" />
+          </Link>
         </div>
 
-        <div className="border-t border-zinc-800 mt-12 pt-8 text-center text-gray-500 text-sm">
-          <p>&copy; {new Date().getFullYear()} MARU. All rights reserved.</p>
+        {/* Nav */}
+        <nav className="flex flex-wrap justify-center gap-x-8 gap-y-3 mb-10">
+          {navLinks.map(({ href, label }) => (
+            <Link key={href} href={href} className="text-zinc-500 hover:text-white text-sm tracking-wide transition-colors duration-200">
+              {label}
+            </Link>
+          ))}
+        </nav>
+
+        {/* Divider */}
+        <div className="h-px bg-white/8 mb-8" />
+
+        {/* Social + Language — centered */}
+        <div className="flex flex-wrap items-center justify-center gap-6">
+          <Link
+            href="https://x.com/mok4shiro"
+            target="_blank"
+            className="flex flex-col items-center gap-2 text-zinc-500 hover:text-white text-xs transition-colors duration-200 group"
+          >
+            <div className="w-12 h-12 rounded-full bg-white/6 flex items-center justify-center group-hover:bg-white/12 transition-colors duration-200">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
+                <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+              </svg>
+            </div>
+            <span>@mok4shiro</span>
+          </Link>
+          <Link
+            href="https://www.uzu-app.com/ja/search-scenarios/author/1808?page=1"
+            target="_blank"
+            className="flex flex-col items-center gap-2 text-zinc-500 hover:text-white text-xs transition-colors duration-200 group"
+          >
+            <div className="w-12 h-12 rounded-full bg-white/6 flex items-center justify-center group-hover:bg-white/12 transition-colors duration-200 overflow-hidden">
+              <Image src="/images/uzu-logo.svg" alt="UZU" width={44} height={44} className="object-contain" />
+            </div>
+            <span>UZU</span>
+          </Link>
+          <div className="h-8 w-px bg-white/10" />
+          <Link
+            href={isEnglish ? '/' : '/en'}
+            className="text-zinc-500 hover:text-white text-xs border border-white/10 hover:border-white/30 px-4 py-2 rounded-full transition-all duration-200"
+          >
+            {isEnglish ? '日本語' : 'English'}
+          </Link>
         </div>
       </div>
     </footer>
