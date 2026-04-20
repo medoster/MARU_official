@@ -17,6 +17,7 @@ const XIcon = () => (
 )
 
 const originalWorks = [
+  { date: "2026/04/02", title: "可惜夜の終わりまで",    href: "/works/atarayo" },
   { date: "2024/08/17", title: "SHADOW CODE",          href: "/works/shadow-code" },
   { date: "2024/09/14", title: "即席HO",               href: "/works/sokusei-ho" },
   { date: "2025/02/14", title: "陰謀論者じゃないもん！", href: "/works/inbou" },

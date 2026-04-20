@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "作品一覧 - MARU",
   description: "MARUが制作したマーダーミステリー作品の一覧です。",
   keywords: [
+    "可惜夜の終わりまで",
     "SHADOW CODE",
     "陰謀論者じゃないもん！",
     "即席HO",
@@ -20,6 +21,17 @@ export const metadata: Metadata = {
 }
 
 const originalWorks = [
+  {
+    src: "/images/atarayo-cover.png",
+    alt: "可惜夜の終わりまで",
+    title: "可惜夜の終わりまで",
+    description:
+      "マーダーミステリーサークルの合宿、その夜。密室の中でサークル長が死んだ。この場にいるのは、推理を遊びとして扱ってきた人間たちだ。",
+    tags: ["推理", "クラシック", "ミステリー", "UZU TOKYO限定"],
+    date: "2026/04/02",
+    venue: "UZU TOKYO",
+    detailHref: "/works/atarayo",
+  },
   {
     src: "/images/shadow-code-cover.png",
     alt: "SHADOW CODE",
@@ -176,21 +188,33 @@ export default function WorksPage() {
 
                     {/* Actions */}
                     <div className="flex items-center gap-3">
-                      <Link
-                        href={work.uzuHref}
-                        target="_blank"
-                        className="flex items-center gap-1.5 text-[11px] font-bold bg-white text-black py-2 px-4 rounded-full hover:bg-white/90 transition-all duration-200 hover:scale-105 active:scale-95 tracking-wide"
-                      >
-                        UZUで遊ぶ
-                        <ExternalLink className="h-2.5 w-2.5" />
-                      </Link>
-                      <Link
-                        href={work.detailHref}
-                        className="flex items-center gap-0.5 text-[11px] text-white/35 hover:text-white/80 transition-colors duration-200 tracking-wide"
-                      >
-                        詳細
-                        <ChevronRight className="h-3.5 w-3.5" />
-                      </Link>
+                      {"venue" in work && work.venue ? (
+                        <Link
+                          href={work.detailHref}
+                          className="flex items-center gap-1.5 text-[11px] font-bold bg-white text-black py-2 px-4 rounded-full hover:bg-white/90 transition-all duration-200 hover:scale-105 active:scale-95 tracking-wide"
+                        >
+                          {work.venue}
+                          <ChevronRight className="h-2.5 w-2.5" />
+                        </Link>
+                      ) : (
+                        <>
+                          <Link
+                            href={"uzuHref" in work ? work.uzuHref as string : work.detailHref}
+                            target="_blank"
+                            className="flex items-center gap-1.5 text-[11px] font-bold bg-white text-black py-2 px-4 rounded-full hover:bg-white/90 transition-all duration-200 hover:scale-105 active:scale-95 tracking-wide"
+                          >
+                            UZUで遊ぶ
+                            <ExternalLink className="h-2.5 w-2.5" />
+                          </Link>
+                          <Link
+                            href={work.detailHref}
+                            className="flex items-center gap-0.5 text-[11px] text-white/35 hover:text-white/80 transition-colors duration-200 tracking-wide"
+                          >
+                            詳細
+                            <ChevronRight className="h-3.5 w-3.5" />
+                          </Link>
+                        </>
+                      )}
                     </div>
                   </div>
 
